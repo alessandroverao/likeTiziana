@@ -1,0 +1,215 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	margin:0px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	min-width:1000px;
+}
+header{
+	margin:auto;
+	padding:10px;
+	font-size:30px;
+	width:500px;
+	margin-top:0px;
+	margin-left: 20px;
+}
+section{
+	margin-left: 20px;
+	margin-top:0px;	
+}
+section table tr td input, form button{
+	margin-left: 20px;
+	padding: 10px;
+	width:90%;
+	height:35px;
+	outline:none;
+	font-size:14px;
+}
+section table tr td input:focus {
+    border: 2px solid #555;
+ }
+.registros{
+	margin-left: 20px;
+	width:700px;
+	height:500px;
+	margin-top:20px;
+	border:1px solid #6F96DF;
+	padding:10px;
+	overflow:auto;
+	cursor: default;
+}
+header[id=venta]{
+	margin:auto;
+	padding:10px;
+	font-size:30px;
+	width:80px;
+	margin-top:-630px;
+	margin-right: 80px;
+}
+
+.registros[id=imprimirprod]{
+	margin-left: 730px;
+	width:620px;
+	height:400px;
+	margin-top:-20px;
+	border:1px solid #6F96DF;
+	padding:10px;
+	overflow:auto;
+	cursor: default;
+}
+section table[id=totales]{
+	margin-left: 710px;
+	margin-top: 20px;
+	
+}
+section table[id=totales] tr td input{
+	font-size:40px;
+	text-align: left;
+	background: transparent;
+    color: black;
+    border:1px solid #6F96DF;
+    padding:1em;
+
+}
+section table[id=totales] tr td label{
+	margin-left: 20px;
+	width:90%;
+	outline:none;
+	font-size:20px;
+
+}
+section table[id=totales] tr td select{
+	margin-left: 20px;
+	margin-top: -10px;
+	margin-bottom: 4px;
+	width:240px;
+	outline:none;
+	font-size:20px;
+   	border: none;
+    background-color: transparent; ;
+    padding: 5px;
+    cursor: pointer;
+}
+section table[id=totales] tr td select:focus {
+    border: 2px solid #555;
+ }
+section table[id=totales] tr td img{
+	margin-left: 100px;
+	max-width: 100%;
+	margin-left: 90px;
+	margin-top: 20px;
+	margin-right: 20px;
+    height: auto;
+	outline:none;
+	-webkit-appearance: none;
+	text-overflow: ellipsis;
+    border-width: 0;
+    box-sizing: border-box;
+    float: left;
+    border: none;
+}
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+/* .modal { 			*/
+/*    display: none; 	 */					/* Hidden by default */
+/*    position: fixed; 	 */				/* Stay in place */
+/*    z-index: 1; 		 */				/* Sit on top */
+/*    padding-top: 100px;  */				/* Location of the box */
+/*    left: 0;				 */
+/*    top: 0;				 */
+/*    width: 100%; 			 */			/* Full width */
+/*    height: 100%; 		 */				/* Full height */
+/*    overflow: auto; 						/* Enable scroll if needed */
+/*   background-color: rgb(0,0,0); 		 */	/* Fallback color */
+/*    background-color: rgba(0,0,0,0.9);  */		/* Black w/ opacity */
+/*}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes zoom {
+    from {transform: scale(0.1)}
+    to {transform: scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #bbb;
+    font-size: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 500px){
+    .modal-content {
+        width: 100%;
+    }
+}
+.formulario table tr td{
+	padding:10px;
+}
+.formulario table tr td input{
+	width:100%;
+	outline:none;
+}
+.formulario table tr td select{
+	width:100%;
+	height:30px;
+	outline:none;
+}
+.bien{
+	background-color:#3CBE34;
+	text-align:center;
+	font-size:14px;
+	color:#FFF;
+	padding:5px;
+}

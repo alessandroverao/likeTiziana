@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+body{
+	margin: 20px auto;
+	text-align: center;
+	width:95%;
+}
+header{
+	margin:auto;
+	padding:10px;
+	font-size:30px;
+	text-align:center;
+	width:95%;
+	color:#FFF;
+	background-color:#252932;
+	margin-bottom:20px;
+	box-shadow:1px 1px 5px #252932;
+	text-shadow:1px 1px 2px #252932;
+}
+section{
+	width:520px;
+	margin:auto;
+	height:auto;
+	margin-bottom:20px;
+	text-align:left;
+}
+section table{
+	width:100%;
+}
+section input[type=file]{
+	width:90%;
+	padding: 10px;
+	height:35px;
+	outline:none;
+	font-size:14px;
+	cursor: pointer;
+}
+section input[type=submit],[type=button]{
+	margin-top:10px;
+	width:50%;
+	font-size:14px;
+	cursor:pointer;
+	color:#F7F7F7;
+	background-color:#252932;
+	padding-top:5px;
+	padding-bottom:5px;
+	border:1px solid #252932;
+	border-radius:50px;
+	font-weight:bold;
+	-webkit-transition:all 500ms ease;
+	-o-transition:all 500ms ease;
+	transition:all 500ms ease;
+	width:90%;
+	padding: 10px;
+	height:35px;
+	outline:none;
+	font-size:14px;
+}
+section input[type=submit]:hover{
+	background:#f56f3a;
+	border-radius:50px;
+}
+section input[type=button]:hover{
+	background:#f56f3a;
+	border-radius:50px;
+}
