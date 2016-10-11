@@ -87,12 +87,12 @@
         </tr>
     </table>
     </section>
-    <!-- The Modal -->
+    <!-- The Modal IMAGEN
 <div id="myModal" class="modal">
   <span class="close"><a class="btn btn-primary">X</a></span>
   <img class="modal-content" id="img01">
   <div id="caption"></div>
-</div>
+</div> -->
     <div class="modal fade" id="registra-producto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -107,12 +107,13 @@
                         <td colspan="2"><input type="text" required="required" readonly="readonly" id="id-prod" name="id-prod" readonly="readonly" style="visibility:hidden; height:5px;"/></td>
                     </tr>
                      <tr>
-                        <td width="150">Proceso: </td>
-                        <td><input type="text" required="required" readonly="readonly" id="pro" name="pro"/></td>
+                        <td width="150"></td>
+                        <td><input type="text" required="required" readonly="readonly" id="pro" name="pro"
+                        style="visibility:hidden; height:5px;"/></td>
                     </tr>
                     <tr>
                         <td>Nombre: </td>
-                        <td><input type="text" required="required" name="nombre" id="nombre" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"/></td>
+                        <td><input type="text" required="required" name="nombre" id="nombre" autofocus style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"/></td>
                     </tr>
                     <tr>
                         <td>Precio Unitario: </td>
@@ -136,8 +137,8 @@
         </div>
       </div>
 
-<script>
-// Get the modal
+<!--<script>
+// Get the modal IMAGEN
 var modal = document.getElementById('myModal');
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
@@ -157,6 +158,6 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
     modal.style.display = "none";
 }
-</script>
+</script>-->
 </body>
 </html>

@@ -24,7 +24,22 @@
 		}
 		ul li{
 			display: table-cell;
-			padding: 0 500px;
+			padding: 0 5px;
+		}
+		input[type=date] {
+			height: 35px;
+			size: 50px;
+			text-align: center;
+		 	margin: 0 auto;
+		  	width: 100%;
+		  	font-size: 18px;
+		  	font-weight: bold;
+		  	text-transform: uppercase;
+		  	background-color: lighten(#2f2f2f,40%);
+		  	outline: none;
+		  	border:1px solid #6F96DF;
+		  	padding: 0 3px;
+		  	color: black;
 		}
 		ul li a{
 			display: block;
@@ -84,10 +99,17 @@
 	</script>
 </head>
 <body>
+	<?php
+		$fecha1 = $_POST['fecha1'];
+		$fecha2 = $_POST['fecha2'];
+	?>
 	<h1><big><strong><font color="#333333">CAJA ENTRE FECHAS</strong></big></h1>
 	<hr>
 	<ul>
+		<li><form><button onclick="javascript:reportePDF();" class="btn btn-danger">Exportar a PDF</button></form></li>
 		<li><form><button id="volver" class="btn btn-primary" onclick="history.back()">Volver</button></form></li>
+		<li><form><input type="date" id="fecha1" value="<?php echo $fecha1; ?>" disabled></form></li>
+		<li><form><input type="date" id="fecha2" value="<?php echo $fecha2; ?>" disabled></form></li>
 	</ul>
 	<div class="registros" id="venta">
         <table class="table table-striped table-condensed table-hover">
@@ -103,9 +125,6 @@
 	<?php
 		include('../../php/conexion2.php');
 
-		$fecha1 = $_POST['fecha1'];
-		$fecha2 = $_POST['fecha2'];
-
         $registro = mysql_query("SELECT * FROM productos, clientes, ventas, detalleventa WHERE fecha_venta BETWEEN '$fecha1' AND '$fecha2' AND id_venta = id_venta_detalle AND id_prod = id_prod_detalle AND id_clien_venta = id_clien AND estadodetalle = 0"); 
         if(!empty($registro)){
 	        while($registro2 = mysql_fetch_array($registro)){
@@ -114,7 +133,7 @@
 							<td>'.$registro2['nomb_prod'].'</td>
 	                        <td>'.$registro2['cod_barra'].'</td>
 	                        <td>'.$registro2['tipo_prod'].'</td>
-	                        <td>'.$registro2['precio_unit'].'</td>
+	                        <td>'.$registro2['importe_detalle'].'</td>
 	                        <td>'.$registro2['nomb_clien'].'</td>
 	                        <td>'.$registro2['fecha_venta'].'</td>
 	                </tr>'; 
@@ -131,5 +150,13 @@
         </tr>
     </table>
     </section>
+    <script>
+    	function reportePDF(){
+    		var desde = $('#fecha1').val();
+    		var hasta = $('#fecha2').val();
+			window.open('cajaEntreFechasPDF.php?desde='+desde+'&hasta='+hasta);
+			history.back();
+		}
+    </script>
 </body>
 </html>

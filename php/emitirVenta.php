@@ -33,6 +33,8 @@ $result = mysql_query($sql);
 $registro = mysql_fetch_assoc($result);
 $cantidad = $registro['existencia_prod'] - $cantidadprodvent;
 
-mysql_query("UPDATE productos SET existencia_prod = '$cantidad' WHERE id_prod = '$idprodven'");
+if($idprodven != 0){
+	mysql_query("UPDATE productos SET existencia_prod = '$cantidad' WHERE id_prod = '$idprodven'");
+}
 
 ?>

@@ -89,6 +89,7 @@
 		<a class="mix productos" href="../php/reportes/valorStockPrecioCosto.php">Valor stock precio costo</a>
 		<a class="mix productos" href="../php/reportes/valorStockPrecioVenta.php">Valor stock precio venta sin IVA</a>
 		<a class="mix ventas" href="../php/reportes/ventasAnuladas.php">Ventas anuladas</a>
+		<a class="mix ventas" href="../php/reportes/detallesAnulados.php">Detalles anulados</a>
 	</div>
 </body>
 </html>

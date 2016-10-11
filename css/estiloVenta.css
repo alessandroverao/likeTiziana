@@ -109,13 +109,13 @@ section table[id=totales] tr td img{
     float: left;
     border: none;
 }
-#myImg {
+/*#myImg {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-}
+}*/
 
-#myImg:hover {opacity: 0.7;}
+/*#myImg:hover {opacity: 0.7;}*/
 
 /* The Modal (background) */
 /* .modal { 			*/
@@ -133,7 +133,7 @@ section table[id=totales] tr td img{
 /*}
 
 /* Modal Content (image) */
-.modal-content {
+/*.modal-content {
     margin: auto;
     display: block;
     width: 100%;
@@ -141,7 +141,7 @@ section table[id=totales] tr td img{
 }
 
 /* Caption of Modal Image */
-#caption {
+/*#caption {
     margin: auto;
     display: block;
     width: 80%;
@@ -153,7 +153,7 @@ section table[id=totales] tr td img{
 }
 
 /* Add Animation */
-.modal-content, #caption {
+/*.modal-content, #caption {
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
@@ -171,7 +171,7 @@ section table[id=totales] tr td img{
 }
 
 /* The Close Button */
-.close {
+/*.close {
     position: absolute;
     top: 15px;
     right: 35px;
@@ -189,11 +189,11 @@ section table[id=totales] tr td img{
 }
 
 /* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 500px){
+/*@media only screen and (max-width: 500px){
     .modal-content {
         width: 100%;
     }
-}
+}*/
 .formulario table tr td{
 	padding:10px;
 }

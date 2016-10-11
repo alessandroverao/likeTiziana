@@ -12,6 +12,16 @@
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
 	<script src="../../bootstrap/js/bootstrap.js"></script>
 	<script src="../../js/jquery.js"></script>
+	<!--<script>
+	function desabilita(){
+		var fecha1 = document.getElementById('fecha1').value;
+		var	fecha2 = document.getElementById('fecha2').value;
+		if(fecha1 > fecha2 || fecha1 == fecha2){
+			location.reload();
+		}
+		
+	}
+</script>-->
 	<style>
 		body{
 			font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -46,16 +56,6 @@
 		<li><input type="submit" id="buscar" class="btn btn-primary" onFocus="javascript:desabilita();"><button id="volver" class="btn btn-primary" onclick="history.back()">Volver</button></li>
 	</form>
 </body>
-<script>
-	function desabilita(){
-		var fecha1 = document.getElementById('fecha1').value;
-		var	fecha2 = document.getElementById('fecha2').value;
-		if(fecha1 > fecha2 || fecha1 == fecha2){
-			location.reload();
-		}
-		
-	}
-</script>
 </html>
 
 

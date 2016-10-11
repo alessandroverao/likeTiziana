@@ -24,7 +24,7 @@
 		}
 		ul li{
 			display: table-cell;
-			padding: 0 500px;
+			padding: 0 5px;
 		}
 		ul li a{
 			display: block;
@@ -87,7 +87,8 @@
 	<h1><big><strong><font color="#333333">VALOR STOCK PRECIO VENTA</strong></big></h1>
 	<hr>
 	<ul>
-		<li><form><button id="volver" class="btn btn-primary" onclick="history.back()">Volver</button></form></li>
+		<li><form><button onclick="javascript:reportePDF();" class="btn btn-danger">Exportar a PDF</button></form></li>
+		<li><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></li>
 	</ul>
 	<div class="registros" id="venta">
         <table class="table table-striped table-condensed table-hover">
@@ -128,6 +129,11 @@
         </tr>
     </table>
     </section>
+    <script>
+    	function reportePDF(){
+			window.open('valorStockPrecioVentaPDF.php');
+			history.back();
+		}
+    </script>
 </body>
-
 </html>

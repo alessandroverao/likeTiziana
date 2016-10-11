@@ -24,7 +24,22 @@
 		}
 		ul li{
 			display: table-cell;
-			padding: 0 500px;
+			padding: 0 5px;
+		}
+		input[type=input] {
+			height: 35px;
+			size: 50px;
+			text-align: center;
+		 	margin: 0 auto;
+		  	width: 100%;
+		  	font-size: 18px;
+		  	font-weight: bold;
+		  	text-transform: uppercase;
+		  	background-color: lighten(#2f2f2f,40%);
+		  	outline: none;
+		  	border:1px solid #6F96DF;
+		  	padding: 0 3px;
+		  	color: black;
 		}
 		ul li a{
 			display: block;
@@ -68,10 +83,15 @@
 	</style>
 	</head>
 <body>
+	<?php
+		$tipo = $_POST['select'];
+	?>
 	<h1><big><strong><font color="#333333">PRODUCTOS POR TIPO</strong></big></h1>
 	<hr>
 	<ul>
-		<li><form><button id="volver" class="btn btn-primary" onclick="history.back()">Volver</button></form></li>
+		<li><form><button onclick="javascript:reportePDF();" class="btn btn-danger">Exportar a PDF</button></form></li>
+		<li><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></li>
+		<li><form><input type="input" id="tipo" value="<?php echo $tipo; ?>" disabled></form></li>
 	</ul>
 	<div class="registros" id="venta">
         <table class="table table-striped table-condensed table-hover">
@@ -89,7 +109,6 @@
             </tr>
 	<?php
 		include('../../php/conexion.php');
-		$tipo = $_POST['select'];
 
         $registro = mysql_query("SELECT * FROM productos WHERE tipo_prod = '$tipo'"); 
         if(!empty($registro)){
@@ -119,5 +138,12 @@
         </tr>
     </table>
     </section>-->
+        <script>
+	    	function reportePDF(){
+	    		var tipo = $('#tipo').val();
+				window.open('productosPorTipoPDF.php?tipo='+tipo);
+				history.back();
+		}
+    </script>
 </body>
 </html>

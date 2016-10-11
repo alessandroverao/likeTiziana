@@ -24,7 +24,7 @@
 		}
 		ul li{
 			display: table-cell;
-			padding: 0 500px;
+			padding: 0 5px;
 		}
 		ul li a{
 			display: block;
@@ -66,22 +66,6 @@
 			font-size:20px;
 		}
 	</style>
-	<script>
-		$(document).on('ready', function(){
-			var valorASumar
-		    suma = 0;		
-		    var table = document.getElementById('venta'), rows = table.getElementsByTagName('tr'), i, j, cells;
-		    for (i = 0, j = rows.length; i < j; ++i) {
-		        cells = rows[i].getElementsByTagName('td');
-		        if (!cells.length) {
-		            continue;
-		        }
-		        valorASumar = cells[4].innerHTML;
-		        suma += parseFloat(valorASumar);
-    		}
-			document.getElementById("totaltxt").value = parseFloat(suma);
-		})
-	</script>
 </head>
 <body>
 	<h1><big><strong><font color="#333333">VENTAS ANULADAS</strong></big></h1>

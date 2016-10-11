@@ -24,7 +24,7 @@
 		}
 		ul li{
 			display: table-cell;
-			padding: 0 500px;
+			padding: 0 5px;
 		}
 		ul li a{
 			display: block;
@@ -87,7 +87,8 @@
 	<h1><big><strong><font color="#333333">VENTAS DEL DÍA</strong></big></h1>
 	<hr>
 	<ul>
-		<li><form><button id="volver" class="btn btn-primary" onclick="history.back()">Volver</button></form></li>
+		<li><form><button onclick="javascript:reportePDF();" class="btn btn-danger">Exportar a PDF</button></form></li>
+		<li><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></li>
 	</ul>
 	<div class="registros" id="venta">
         <table class="table table-striped table-condensed table-hover">
@@ -113,7 +114,7 @@
 							<td>'.$registro2['nomb_prod'].'</td>
 	                        <td>'.$registro2['cod_barra'].'</td>
 	                        <td>'.$registro2['tipo_prod'].'</td>
-	                        <td>'.$registro2['precio_unit'].'</td>
+	                        <td>'.$registro2['importe_detalle'].'</td>
 	                        <td>'.$registro2['nomb_clien'].'</td>
 	                        <td>'.$registro2['fecha_venta'].'</td>
 	                        <td><a href="javascript:eliminarProducto('.$registro2['id_detalle'].','.$registro2['id_venta'].');" class="glyphicon glyphicon-remove-circle"></a></td>
@@ -151,6 +152,12 @@
 			return false;
 		}
 	}
+    </script>
+    <script>
+    	function reportePDF(){
+			window.open('ventasDelDiaPDF.php');
+			history.back();
+		}
     </script>
 </body>
 </html>
