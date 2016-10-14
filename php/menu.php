@@ -18,10 +18,11 @@
 			<div class="wrapper">
 				<div class="logo">likeTiziana</div>
 				<nav>
-					<a href="../php/productos.php">Productos</a>
 					<a href="../php/ventas.php">Ventas</a>
+					<a href="../php/compras.php">Compras</a>
 					<a href="../php/reportes.php">Reportes</a>
 					<a href="../php/herramientas.php">Herramientas</a>
+					<a href="../php/notas_rapidas.php">Notas</a> 
 					<a href="../php/salir.php">Salir</a>
 				</nav>
 			</div>

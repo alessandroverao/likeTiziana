@@ -20,7 +20,8 @@
 			<div class="wrapper">
 				<div class="logo">likeTiziana</div>
 				<nav>
-					<a href="../php/menu.php">Inicio</a> 
+					<a href="../php/menu.php">Atras</a> 
+					<a href="../php/productos.php">Productos</a>
 					<a href="../php/clientes.php">Clientes</a> 
 					<a href="../php/proveedores.php">Proveedores</a> 
 					<a href="../php/importarProductos.php">Importar</a>

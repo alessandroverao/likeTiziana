@@ -26,7 +26,7 @@ switch($proceso){
 
 //ACTUALIZAMOS LOS REGISTROS Y LOS OBTENEMOS
 
-$registro = mysql_query("SELECT * FROM productos ORDER BY nomb_prod ASC");
+$registro = mysql_query("SELECT * FROM productos WHERE id_prod != 0 ORDER BY nomb_prod ASC");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 

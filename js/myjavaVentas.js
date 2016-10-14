@@ -167,6 +167,68 @@ function emitir(){
 					data:('idclienteventa='+idclienteventa+'&importe='+importe+'&idprodven='+idprodven+'&cantidadprodvent='+cantidadprodvent+'&precioprodvent='+precioprodvent+'&e='+e),
 				});
 			}
+			pregunta = confirm('¿Emitir Ticket?');
+			if(pregunta == true){
+				var w = window.open();
+				w.document.write("<div style='color:black;font-size:12px;text-align:center;'>");
+				w.document.write("<strong>");
+				w.document.write("likeTiziana");
+				w.document.write("</strong>");
+				w.document.write("<br/>");
+				w.document.write("</div>");
+				w.document.write("<div style='color:black;font-size:18px;text-align:center;'>");
+				w.document.write("<strong>");
+				w.document.write("Los dos Hermanos");
+				w.document.write("</strong>");
+				w.document.write("<br/>");
+				w.document.write("<br/>");
+				w.document.write("</div>");
+				w.document.write("<div>");
+				w.document.write('Vera Oszika Alessandro');
+				w.document.write("<br/>");
+				w.document.write('C.U.I.T.: 20-93945315-7');
+				w.document.write("<br/>");
+				w.document.write('Direccion: Las Palmas 1350 - Barrio: Mapuri');
+				w.document.write("<br/>")
+				w.document.write('CP: 3334 - Puerto Rico - Misiones');
+				w.document.write("<br/>");
+				w.document.write('Responsable Monotributo');
+				w.document.write("<br/>");
+				w.document.write('A Consumodir Final');
+				w.document.write("<br/>");
+				w.document.write("<br/>");
+				/*fecha*/
+				var d = new Date();
+				var curr_date = d.getDate();
+				var curr_month = d.getMonth();
+				var curr_year = d.getFullYear();
+				w.document.write("Fecha: " + curr_date + "-" + curr_month + "-" + curr_year);
+				/* hora*/
+				var date = new Date();
+				var hh = date.getHours();
+				var mm = date.getMinutes();
+				var ss = date.getSeconds();
+				w.document.write(" Hora: " + hh + ":" + mm + ":" + ss);
+				w.document.write("<br/>");
+				w.document.write("<br/>");
+				w.document.write("</div>");
+				w.document.write($('#imprimirprod').html());
+				w.document.write("<div>");
+				w.document.write("<br/>");
+				w.document.write("<br/>");
+				w.document.write('TOTAL: ' + document.getElementById('totaltxt').value);
+				w.document.write("</div>");
+				w.document.close(); 
+				w.focus();
+				w.print();
+				w.close();
+				url = '../php/impresion.php'
+				$.ajax({
+					type:'POST',
+					url:'../php/impresion.php',
+					data:'idclienteventa='+idclienteventa,
+				});
+			}
 			window.location.href= '../php/ventas.php';
 			location.reload();
 		}

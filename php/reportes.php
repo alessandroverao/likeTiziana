@@ -90,6 +90,10 @@
 		<a class="mix productos" href="../php/reportes/valorStockPrecioVenta.php">Valor stock precio venta sin IVA</a>
 		<a class="mix ventas" href="../php/reportes/ventasAnuladas.php">Ventas anuladas</a>
 		<a class="mix ventas" href="../php/reportes/detallesAnulados.php">Detalles anulados</a>
+		<a class="mix ventas" href="../php/reportes/imprimirTicket.php">Imprimir ticket</a>
+		<a class="mix proveedores" href="../php/reportes/todasLasCompras.php">Todas las compras</a>
+		<a class="mix proveedores" href="../php/reportes/todasLasComprasPorProveedor.php">Todas las compras por proveedor</a>
+		
 	</div>
 </body>
 </html>

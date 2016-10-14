@@ -52,5 +52,5 @@ $pdf->Cell(130,8,'',0);
 $pdf->Cell(15,8,'Total: $ ',1);
 $pdf->Cell(50,8,$totaluni,0);
 
-$pdf->Output('reporteCajaDelDia.pdf','D');
+$pdf->Output('reporteCajaDelDia.pdf','I');
 ?>

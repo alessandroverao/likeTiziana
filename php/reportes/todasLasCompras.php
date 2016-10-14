@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Detalles anulados</title>
+	<title>Todas las compras</title>
 	<LINK rel="icon" href="../../favicon.ico" />
 	<link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -66,64 +66,65 @@
 			font-size:20px;
 		}
 	</style>
-</head>
+		<script>
+		$(document).on('ready', function(){
+			var valorASumar
+		    suma = 0;		
+		    var table = document.getElementById('venta'), rows = table.getElementsByTagName('tr'), i, j, cells;
+		    for (i = 0, j = rows.length; i < j; ++i) {
+		        cells = rows[i].getElementsByTagName('td');
+		        if (!cells.length) {
+		            continue;
+		        }
+		        valorASumar = cells[2].innerHTML;
+		        suma += parseFloat(valorASumar);
+    		}
+			document.getElementById("totaltxt").value = parseFloat(suma);
+		})
+	</script>
+	</head>
 <body>
-	<h1><big><strong><font color="#333333">DETALLES ANULADOS</strong></big></h1>
+	<h1><big><strong><font color="#333333">TODAS LAS COMPRAS</strong></big></h1>
 	<hr>
 	<ul>
-		<li><form><button id="volver" class="btn btn-primary" onclick="history.back()">Volver</button></form></li>
+		<li><form><button onclick="javascript:reportePDF();" class="btn btn-danger">Exportar a PDF</button></form></li>
+		<li><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></li>
 	</ul>
 	<div class="registros" id="venta">
         <table class="table table-striped table-condensed table-hover">
             <tr>
-            	<th width="100">Venta</th>
-                <th width="250">Nombre</th>
-                <th width="150">Código de Barras</th>
-                <th width="100">Tipo</th>
-                <th width="150">Precio Unitario</th>
-                <th width="150">Cliente</th>
-                <th width="150">Fecha</th>
-                <th width="50">Recuperar</th>
+            	<th width="300">Proveedor</th>
+                <th width="300">Fecha compra</th>
+                <th width="300">Importe compra</th>
             </tr>
 	<?php
 		include('../../php/conexion.php');
-        $registro = mysql_query("SELECT * FROM productos, clientes, ventas, detalleventa WHERE estadodetalle = 1 AND id_prod_detalle = id_prod AND id_clien_venta = id_clien AND id_venta = id_venta_detalle"); 
+
+        $registro = mysql_query("SELECT * FROM compras, proveedores WHERE id_provee_compra = id_prove"); 
         if(!empty($registro)){
 	        while($registro2 = mysql_fetch_array($registro)){
 	        	echo '<tr>
-							<td>'.$registro2['id_venta'].'</td>
-							<td>'.$registro2['nomb_prod'].'</td>
-	                        <td>'.$registro2['cod_barra'].'</td>
-	                        <td>'.$registro2['tipo_prod'].'</td>
-	                        <td>'.$registro2['importe_detalle'].'</td>
-	                        <td>'.$registro2['nomb_clien'].'</td>
-	                        <td>'.$registro2['fecha_venta'].'</td>
-	                        <td><a href="javascript:recuperarProducto('.$registro2['id_detalle'].','.$registro2['id_venta'].');" class="glyphicon glyphicon-ok"></a></td>
+	        				<td>'.$registro2['nomb_prove'].'</td>
+							<td>'.$registro2['fecha_compra'].'</td>
+	                        <td>'.$registro2['importe_compra'].'</td>
 	                </tr>'; 
 	       	}
        }
     ?>
     </table>
     </div>
+    <section id="total">
+    <table id="totales">
+        <tr>
+            <td><label for="totallbl">TOTAL $ </label></td>
+            <td width="300"><input type="number" id="totaltxt" name="totaltxt" step="any" disabled /></td>
+        </tr>
+    </table>
+    </section>
     <script>
-	    function recuperarProducto(iddetalle, idventa){
-			var url = 'recuperarDetalleVenta.php';
-			var pregunta = confirm('¿Esta seguro de recuperar esta Venta?');
-			if(pregunta==true){
-				$.ajax({
-				type:'POST',
-				url:url,
-				data:('iddetalle='+iddetalle+'&idventa='+idventa),
-				success: function(registro){
-					if(registro=1){
-						location.reload();
-					}
-				}
-			});
-			return false;
-			}else{
-				return false;
-			}
+    	function reportePDF(){
+			window.open('todosLasComprasPDF.php');
+			history.back();
 		}
     </script>
 </body>

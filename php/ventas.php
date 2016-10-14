@@ -21,9 +21,9 @@
     <table>
         <tr>
             <td width="335"><input type="text" placeholder="Buscar por: Nombre o Cod. Barra" id="bs-prod" autofocus/></td>
-            <td witdh="200"><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></td>
             <td width="100"><button id="nuevo-producto" style="margin-left: 30px" class="btn btn-primary">Nuevo</button></td>
-            <td witdh="200"><button id="emitir" style="margin-left: 20px" class="btn btn-primary" onclick="javascript:emitir();">Emitir</button></td>
+            <td witdh="200"><button id="emitir" style="margin-left: 20px" class="btn btn-danger" onclick="javascript:emitir();">Emitir</button></td>
+            <td witdh="200"><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></td>
         </tr>
     </table>
     </section>

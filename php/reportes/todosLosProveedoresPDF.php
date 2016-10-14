@@ -47,5 +47,5 @@ while($productos2 = mysql_fetch_array($productos)){
 }
 
 
-$pdf->Output('reporteTodosLosProveedores.pdf','D');
+$pdf->Output('reporteTodosLosProveedores.pdf','I');
 ?>

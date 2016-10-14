@@ -53,7 +53,7 @@
 	<form action="cajaEntreFechas.php" method="post" id="caja">
 		<li><input type="date" id="fecha1" name="fecha1" max="<?PHP echo date("Y-m-d"); ?>" autofocus required></li>
 		<li><input type="date" id="fecha2" name="fecha2" max="<?PHP echo date("Y-m-d"); ?>" required></li>
-		<li><input type="submit" id="buscar" class="btn btn-primary" onFocus="javascript:desabilita();"><button id="volver" class="btn btn-primary" onclick="history.back()">Volver</button></li>
+		<li><input type="submit" id="buscar" class="btn btn-primary"><button id="volver" class="btn btn-primary" onclick="history.back()">Volver</button></li>
 	</form>
 </body>
 </html>

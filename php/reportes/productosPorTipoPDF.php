@@ -54,5 +54,5 @@ while($productos2 = mysql_fetch_array($productos)){
 }
 
 
-$pdf->Output('reporteProductosPorTipo.pdf','D');
+$pdf->Output('reporteProductosPorTipo.pdf','I');
 ?>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Ventas entre fechas</title>
+	<title>Imprimir ticket</title>
 	<LINK rel="icon" href="../../favicon.ico" />
 	<link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -35,8 +35,14 @@
 		}
 		form li{
 			padding: 0 5px;
-			margin-top: 10px;
+			margin-top: 20px;
 			display: block;
+			outline:none;
+			font-size:20px;
+		   	border: none;
+		    background-color: transparent; ;
+		    padding: 5px;
+		    cursor: pointer;
 		}
 		form li input, button{
 			padding: 0 5px;
@@ -47,12 +53,22 @@
 	</style>
 </head>
 <body>
-	<h1><big><strong><font color="#333333">VENTAS ENTRE FECHAS</strong></big></h1>
+	<h1><big><strong><font color="#333333">IMPRIMIR TICKET</strong></big></h1>
 	<hr>	
-	<h4>Seleccione las fechas de búsqueda</h4>
-	<form action="ventasEntreFechas.php" method="post" id="caja">
-		<li><input type="date" id="fecha1" name="fecha1" max="<?php echo date("Y-m-d"); ?>" autofocus required></li>
-		<li><input type="date" id="fecha2" name="fecha2"  max="<?php echo date("Y-m-d"); ?>" required></li>
+	<h4>Seleccione el "ID" de la venta</h4>
+	<form action="imprimirTicketBusqueda.php" method="post" id="caja">
+	<?php
+		include('../../php/conexion2.php');
+        $registro = mysql_query("SELECT id_venta FROM ventas WHERE impresiones = 0 ORDER BY id_venta DESC");
+    ?>
+		<li><select required="required" name="tipo" id="tipo" autofocus>
+			<?php 
+               	while($registro2 = mysql_fetch_array($registro)){ ?>
+
+               <option value="<?php echo $registro2['id_venta']?>"> <?php echo $registro2['id_venta'] 
+            ?>  </option>
+            <?php } ?> 
+        </select></li>
 		<li><input type="submit" id="buscar" class="btn btn-primary"><button id="volver" class="btn btn-primary" onclick="history.back()">Volver</button></li>
 	</form>
 </body>

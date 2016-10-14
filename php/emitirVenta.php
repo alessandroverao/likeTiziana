@@ -13,7 +13,7 @@ if($i=="1"){
 	$result = mysql_query($sql);
 	$id_venta = mysql_num_rows($result); // el número de filas
 	$id_venta += 1;
-mysql_query("INSERT INTO ventas (id_venta, estadoventa, fecha_venta, id_clien_venta)VALUES('$id_venta',0,'$fecha','$idclienteventa')");
+mysql_query("INSERT INTO ventas (id_venta, estadoventa, fecha_venta, id_clien_venta, impresiones)VALUES('$id_venta',0,'$fecha','$idclienteventa',0)");
 }
 else{
 	$sql = "SELECT * FROM ventas";  // sentencia sql
