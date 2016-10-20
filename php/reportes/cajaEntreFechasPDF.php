@@ -44,7 +44,7 @@ $pdf->Cell(30, 8, 'Fecha', 0);
 $pdf->Ln(8);
 $pdf->SetFont('Arial', '', 8);
 //CONSULTA
-$productos = mysql_query("SELECT * FROM productos, clientes, ventas, detalleventa WHERE fecha_venta BETWEEN '$desde' AND '$hasta' AND id_venta = id_venta_detalle AND id_prod = id_prod_detalle AND id_clien_venta = id_clien AND estadodetalle = 0");
+$productos = mysql_query("SELECT * FROM productos, tipoproductos, clientes, ventas, detalleventa WHERE fecha_venta BETWEEN '$desde' AND '$hasta' AND id_venta = id_venta_detalle AND id_prod = id_prod_detalle AND id_clien_venta = id_clien AND estadodetalle = 0 AND tipo_prod = id_tipo_pro");
 $item = 0;
 $totaluni = 0;
 while($productos2 = mysql_fetch_array($productos)){
@@ -54,7 +54,7 @@ while($productos2 = mysql_fetch_array($productos)){
 	$pdf->Cell(10, 8, $productos2['id_venta'], 0);
 	$pdf->Cell(60, 8, $productos2['nomb_prod'], 0);
 	$pdf->Cell(25, 8, $productos2['cod_barra'], 0);
-	$pdf->Cell(25, 8, $productos2['tipo_prod'], 0);
+	$pdf->Cell(25, 8, $productos2['tipo_pro'], 0);
 	$pdf->Cell(15, 8, $productos2['importe_detalle'], 0);
 	$pdf->Cell(35, 8, $productos2['nomb_clien'], 0);
 	$pdf->Cell(30, 8, $productos2['fecha_venta'], 0);

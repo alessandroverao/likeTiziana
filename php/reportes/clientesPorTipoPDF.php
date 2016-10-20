@@ -23,7 +23,7 @@ $pdf->Ln(23);
 $pdf->SetFont('Arial', 'B', 8);
 $pdf->Cell(5, 8, 'ID', 0);
 $pdf->Cell(40, 8, 'Nombre', 0);
-$pdf->Cell(25, 8, 'Tipo', 0);
+$pdf->Cell(30, 8, 'Tipo', 0);
 $pdf->Cell(40, 8, 'Direccion', 0);
 $pdf->Cell(18, 8, 'Celular', 0);
 $pdf->Cell(18, 8, 'Fecha Reg.', 0);
@@ -33,14 +33,14 @@ $pdf->Ln(8);
 $pdf->SetFont('Arial', '', 8);
 //CONSULTA
 
-$productos = mysql_query("SELECT * FROM clientes WHERE tipo_clien = '$tipo'"); 
+$productos = mysql_query("SELECT * FROM clientes, tipoclientes WHERE tipo_clien = id_tipo_client AND tipo_cliente_tipo = '$tipo'ORDER BY nomb_clien ASC"); 
 
 
 while($productos2 = mysql_fetch_array($productos)){
 
 	$pdf->Cell(5, 8, $productos2['id_clien'], 0);
 	$pdf->Cell(40, 8, $productos2['nomb_clien'], 0);
-	$pdf->Cell(25, 8, $productos2['tipo_clien'], 0);
+	$pdf->Cell(30, 8, $productos2['tipo_cliente_tipo'], 0);
 	$pdf->Cell(40, 8, $productos2['direccion_clien'], 0);
 	$pdf->Cell(18, 8, $productos2['celular_clien'], 0);
 	$pdf->Cell(18, 8, $productos2['fecha_reg_clien'], 0);

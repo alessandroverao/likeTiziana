@@ -16,7 +16,7 @@
 	<body>
 		<header class="header2">
 			<div class="wrapper">
-				<div class="logo">likeTiziana</div>
+				<div class="logo" onclick="pagina();">likeTiziana</div>
 				<nav>
 					<a href="../php/ventas.php">Ventas</a>
 					<a href="../php/compras.php">Compras</a>
@@ -80,6 +80,10 @@
 	  		});
 		});
 		</script>
-		
+		<script>
+			function pagina(){
+				window.open(href= '../liketiziana/liketiziana.html');
+			}
+		</script>
 	</body>
 </html>

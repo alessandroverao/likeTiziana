@@ -2,7 +2,7 @@
 	include('../php/conexion.php');
 	$paginaActual = $_POST['partida'];
 
-    $nroProductos = mysql_num_rows(mysql_query("SELECT * FROM productos"));
+    $nroProductos = mysql_num_rows(mysql_query("SELECT * FROM productos, tipoproductos WHERE tipo_prod = id_tipo_pro"));
     $nroLotes = 100;
     $nroPaginas = ceil($nroProductos/$nroLotes);
     $lista = '';
@@ -28,7 +28,7 @@
   		$limit = $nroLotes*($paginaActual-1);
   	}
 
-  	$registro = mysql_query("SELECT * FROM productos LIMIT $limit, $nroLotes ORDER BY nomb_prod ASC");
+  	$registro = mysql_query("SELECT * FROM productos, tipoproductos WHERE tipo_prod = id_tipo_pro LIMIT $limit, $nroLotes ORDER BY nomb_prod ASC");
 
 
   	$tabla = $tabla.'<table class="table table-striped table-condensed table-hover">
@@ -47,7 +47,7 @@
 		$tabla = $tabla.'<tr>
                             <td>'.$registro2['nomb_prod'].'</td>
                             <td>'.$registro2['cod_barra'].'</td>
-                            <td>'.$registro2['tipo_prod'].'</td>
+                            <td>'.$registro2['tipo_pro'].'</td>
                             <td>$ '.$registro2['precio_cost'].'</td>
                             <td>'.$registro2['porcentaje_prod'].' %</td>
                             <td>$ '.$registro2['precio_unit'].'</td>

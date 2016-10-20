@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<LINK rel="icon" href="../favicon.ico" />
+	
+	<title>likeTiziana | Bienvenido</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+	<link href="../liketiziana/fonts.googleapis.com_Roboto.css" rel='stylesheet' type='text/css'>
+	<link href="../liketiziana/fonts.googleapis.com_RobotoCondensed.css" rel='stylesheet' type='text/css'>
+	<script src="../js/jquery.js"></script>
+
+</head>
+<body>
+	<div class="wrapper">
+		
+		<header class="flex navbar">
+			<nav class="flex item">
+				<a id="acerca">Acerca de Alessandro</a>
+				<a id="liketiziana">likeTiziana</a>
+				<a id="redes">Redes</a>
+				<a id="contacto">Contacto</a>
+			</nav>
+			<h1 class="item">Alessandro Vera O. <span>likeTiziana</span></h1>
+		</header>
+
+		<main class="content">
+
+			<section class="flex about" id="about">
+
+				<article class="photo item order-2">
+					<figure>
+						<img src="../liketiziana/alessandro.jpg" alt="">
+					</figure>
+				</article>
+
+				<article class="description item order-3">
+					<p class="subtitle"><span class="number">01.</span>Acerca de</p>
+					<p>Estudiante de la carrera Analista de Sistemas. Desarrollador de likeTiziana. Residencia Puerto Rico Misiones Argentina. </p>
+				</article>
+
+				<article class="title item order-1">
+					<h2>        </h2>
+				</article>
+
+			</section>
+
+
+			<section class="flex creation" id="creation">
+
+				<article class="title item order-1">
+					<h2>        </h2>
+				</article>
+
+				<article class="image item order-2">
+					<figure>
+						<img src="../liketiziana/T.png" alt="">
+					</figure>
+				</article>
+
+				<article class="description item order-3">
+					<p class="subtitle"><span class="number">02.</span>likeTiziana</p>
+					<p>Gestión Comercial, Facturación e Inventario. Permite administrar el inventario de productos y ventas, disminuyendo el esfuerzo humano y evitando pérdidas de tiempo en aquellas pesadas tareas como la administración. </p>
+				</article>
+
+			</section>
+
+
+			<section class="flex portfolio" id="portfolio">
+
+				<article class="description item order-2">
+					<p class="subtitle" id="portfolio"><span class="number">03.</span>Redes</p>
+					<p> likeTiziana se encuentra en tus redes sociales favoritas, para mantenerte actualizado. </p><br><br>
+					<ul>
+						<li>
+							<p>Facebook: </p>
+							<a href="https://www.facebook.com/liketiziana" target="_blank">facebook.com/liketiziana</a>
+						</li>
+						<li>
+							<p>Twitter: </p>
+							<a href="https://twitter.com/likeTizianaOK" target="_blank">twitter.com/likeTizianaOK</a>
+						</li>
+						<li>
+							<p>Google+: </p>
+							<a href="https://plus.google.com/109771097617580548455" target="_blank">plus.google.com/liketiziana</a>
+						</li>
+					</ul>
+				</article>
+
+				<article class="title item order-1">
+					<h2>            </h2>
+				</article>
+
+			</section>
+
+
+			<section class="flex contact" id="contact">
+
+				<article class="description item order-2">
+					<p class="subtitle"><span class="number">04.</span>Contacto</p>
+					<p>Para consultas, problemas, sugerencias, etc. Escriba su nombre completo y su correo electronico en la siguiente casilla. Será atendido a la brevedad (revise su correo)</p>
+				</article>
+
+				<article class="title item order-1">
+					<h2>        </h2>
+				</article>
+
+				<article class="form item order-3">
+					<form method="post" action="correo.php"> 
+						<fieldset>
+							<input type="text" name="first_name" maxlength="50" size="25" placeholder="Nombre completo" required>
+							<input type="email" name="email" placeholder="Ingrese su correo" required>
+							<textarea name="comments" maxlength="500" cols="30" rows="5" placeholder="Consulta, problema, sugerencia, etc." required></textarea>
+						</fieldset>
+						<input type="submit" value="Enviar">  
+					</form>
+				</article>
+
+			</section>
+		
+		</main>
+
+	</div>
+	<script>
+		$("#acerca").click(function () {
+		    $('html,body').animate({
+		        scrollTop: $("#about").offset().top
+		    }, 0);
+		});
+		$("#liketiziana").click(function () {
+		    $('html,body').animate({
+		        scrollTop: $("#creation").offset().top
+		    }, 0);
+		});
+		$("#redes").click(function () {
+		    $('html,body').animate({
+		        scrollTop: $("#portfolio").offset().top
+		    }, 0);
+		});
+		$("#contacto").click(function () {
+		    $('html,body').animate({
+		        scrollTop: $("#contact").offset().top
+		    }, 0);
+		});
+	</script>
+</body>
+</html>
+

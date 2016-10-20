@@ -1,0 +1,159 @@
+/****
+STYLES GUIDE:
+0. RESET
+1. LAYOUT
+2. GENERIC ITEMS
+3. LIST
+4. FORM
+5. MEDIAQUERY
+-----------------
+*/
+
+
+/* -------- 0. RESET -------- */
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* { box-sizing:border-box;}
+
+
+/* -------- 1. LAYOUT -------- */
+body { text-align: center; font: 1rem/1 'Roboto'; background: #FFFFFA;}
+.wrapper { width: 900px; margin: 30px auto; text-align: left;}
+
+.flex { display: flex;}
+
+.navbar { justify-content:space-between;}
+	.navbar nav { align-items:flex-end;}
+
+.content .item { display: flex; align-items:center; justify-content: center; flex:1; background: #ccc; height: 350px; padding: 20px;}
+	
+	.content .about .item.title, .content .portfolio .item.title { justify-content: flex-start;} 
+	.content .creation .item.title { justify-content: flex-end;}
+
+/* -------- 2. GENERIC ITEMS -------- */
+	.navbar { margin-left: 10px;}
+		.navbar a { display: inline-block; margin-right: 1px; padding: 15px 15px 5px 15px; font-size: 16px; font-weight: 700; text-transform: uppercase; color: #000; cursor:pointer; text-decoration: none; font-family: 'Roboto Condensed';}
+			.navbar a:nth-child(1) { border-bottom: 4px solid #D32F2F;}
+			.navbar a:nth-child(2) { border-bottom: 4px solid #252932;}
+			.navbar a:nth-child(3) { border-bottom: 4px solid #008bda;}
+			.navbar a:nth-child(4) { border-bottom: 4px solid #f56f3a;}
+
+		.navbar h1 { font-weight: 500; font-size: 25px; text-align: right;}
+			.navbar span {display: block; font-size: 40px; font-weight: 700;}
+
+	.title { font:300 55px 'Roboto Condensed'; text-transform: uppercase;}
+	.description { font-size: 16px; font-weight: 300; line-height: 1.3;}
+	.description .number { font-weight: 700; font-size: 30px; color: rgba(0,0,0,.3);}
+	.description .subtitle { font-size: 24px; margin-bottom: 10px;}
+
+	.about { color: #fff;}
+		.about .photo { background: rgba(211, 47, 47, 0.0);}
+			.photo figure { display: flex; align-items:center; justify-content: center; width: 240px; height: 240px; border-radius: 50%; overflow: hidden;}
+		.about .description { background: rgba(211, 47, 47, 0.9); display: flex; flex-flow:column nowrap; align-items:flex-start;}
+		.about .title { background: #D32F2F;}
+
+	.creation { color: #333;}
+		.creation .image { background: rgba(37, 41, 50, 0.0);}
+			.image figure { display: flex; align-items:center; justify-content: center; width: 240px; height: 240px; border-radius: 50%; overflow: hidden;}
+		.creation .description { background: rgba(37, 41, 50, 0.9); color:white; display: flex; flex-flow:column nowrap; align-items:flex-start;}
+		.creation .title { background: #252932; color:#fff; font-size: 50px;}
+
+	.portfolio { color: #333;}
+		.portfolio .description { background: rgba(0, 139, 218, 0.0); border:20px solid #fff; display: flex; flex-flow:column nowrap; align-items:flex-start; flex:1 65.7%;}
+		.portfolio .title { background: #008bda; color:#fff; flex:1 auto; font-size: 93px;}
+
+	.contact { color: #fff;}
+		.contact .form { background: rgba(245, 111, 58, 0.9);}
+		.contact .description { background: rgba(245, 111, 58, 0.9); display: flex; flex-flow:column nowrap; align-items:flex-start;}
+		.contact .title { background: #f56f3a;}
+
+/* -------- 3. LIST -------- */
+
+	.portfolio li { padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #ddd;}
+	.portfolio a { color: #008bda; text-decoration: none;}
+
+/* -------- 4. FORM -------- */
+
+	.contact form { display: flex; flex-flow:column nowrap; align-items:flex-end;}
+	.contact input { border: 0; background: #fff; display: block; width: 200px; height: 30px; padding-left:10px; margin-bottom: 10px; }
+		.contact [type=submit] { width: auto; cursor:pointer; height: auto; padding: 5px 15px; border: 2px solid #fff; background: none; color: #fff; font-size: 16px;}
+		.contact textarea {resize:none;}
+/* -------- 5. MEDIAQUERY -------- */
+
+@media screen and (max-width: 780px) {
+}
+
+@media screen and (max-width: 600px) {
+}
+
+@media screen and (max-width: 440px) {
+
+	.wrapper { width: 100%;}
+
+	.navbar {
+		display:none;
+	}
+
+	.order-1 { order:1;}
+	.order-2 { order:2;}
+	.order-3 { order:3;}
+
+	.about.flex, .creation.flex, .portfolio.flex, .contact.flex { flex-flow: column; position: relative; }
+	.content .about .item.title, .content .creation .item.title, .content .portfolio .item.title, .content .contact .item.title { height: auto; padding-top: 20px; padding-bottom: 40px; justify-content:flex-start;}
+
+	.about .photo, .creation .image { position: absolute; right: 0px; top: 10%; background: transparent; width: 180px; height: 180px;}
+		.about figure, .creation figure { width: 100%; height: 100%;}
+		.about .photo img { max-width: 100%; width: 100%; height: auto;}
+
+		.creation figure { display: flex; justify-content:center; align-items:center; background: #fff; border-radius: 50%;}
+		.creation .image img { width: 60px;}
+
+	.about .description, .creation .description, .contact .description, .contact .form { height: auto; padding-top: 40px; padding-bottom: 60px;}
+
+	.portfolio .description { border:0;}
+}
+

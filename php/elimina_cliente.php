@@ -9,7 +9,7 @@ mysql_query("DELETE FROM clientes WHERE id_clien = '$id'");
 
 //ACTUALIZAMOS LOS REGISTROS Y LOS OBTENEMOS
 
-$registro = mysql_query("SELECT * FROM clientes ORDER BY id_clien ASC");
+$registro = mysql_query("SELECT * FROM clientes, tipoclientes WHERE tipo_clien = id_tipo_client ORDER BY nomb_clien ASC");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
@@ -27,7 +27,7 @@ echo '<table class="table table-striped table-condensed table-hover">
 	while($registro2 = mysql_fetch_array($registro)){
 		echo '<tr>
                 <td>'.$registro2['nomb_clien'].'</td>
-                <td>'.$registro2['tipo_clien'].'</td>
+                <td>'.$registro2['tipo_cliente_tipo'].'</td>
                 <td>'.$registro2['direccion_clien'].'</td>
                 <td>'.$registro2['celular_clien'].'</td>
                 <td>'.fechaNormal($registro2['fecha_reg_clien']).'</td>

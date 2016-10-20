@@ -9,7 +9,7 @@ mysql_query("DELETE FROM proveedores WHERE id_prove = '$id'");
 
 //ACTUALIZAMOS LOS REGISTROS Y LOS OBTENEMOS
 
-$registro = mysql_query("SELECT * FROM proveedores ORDER BY id_prove ASC");
+$registro = mysql_query("SELECT * FROM proveedores,  tipoclientes WHERE tipo_prove = id_tipo_client ORDER BY nomb_prove ASC");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
@@ -27,7 +27,7 @@ echo '<table class="table table-striped table-condensed table-hover">
 	while($registro2 = mysql_fetch_array($registro)){
 		echo '<tr>
                 <td>'.$registro2['nomb_prove'].'</td>
-                <td>'.$registro2['tipo_prove'].'</td>
+                <td>'.$registro2['tipo_cliente_tipo'].'</td>
                 <td>'.$registro2['direccion_prove'].'</td>
                 <td>'.$registro2['celular_prove'].'</td>
                 <td>'.fechaNormal($registro2['fecha_reg_prove']).'</td>

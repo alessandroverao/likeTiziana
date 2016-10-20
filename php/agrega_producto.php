@@ -13,20 +13,25 @@ $iva = $_POST['iva'];
 $fecha = date('Y-m-d');
 //VERIFICAMOS EL PROCESO
 
+$sql  = "SELECT * FROM tipoproductos WHERE tipo_pro = '$tipo'";
+$result = mysql_query($sql);
+$registro = mysql_fetch_assoc($result);
+$idtipo = $registro['id_tipo_pro'];
+
 switch($proceso){
 	case 'Registro':
-		mysql_query("INSERT INTO productos (nomb_prod, cod_barra, tipo_prod, precio_cost, porcentaje_prod, precio_unit, existencia_prod, fecha_reg, iva_prod)VALUES('$nombre','$codbarra','$tipo','$precio_cost','$porcentaje','$precio_uni','$existencia', '$fecha', '$iva')");
+		mysql_query("INSERT INTO productos (nomb_prod, cod_barra, tipo_prod, precio_cost, porcentaje_prod, precio_unit, existencia_prod, fecha_reg, iva_prod)VALUES('$nombre','$codbarra','$idtipo','$precio_cost','$porcentaje','$precio_uni','$existencia', '$fecha', '$iva')");
 	break;
 	
 	case 'Edicion':
-		mysql_query("UPDATE productos SET nomb_prod = '$nombre', cod_barra = '$codbarra', tipo_prod = '$tipo', precio_cost = '$precio_cost', porcentaje_prod ='$porcentaje', precio_unit = '$precio_uni', existencia_prod = '$existencia', iva_prod = '$iva' WHERE id_prod = '$id'");
+		mysql_query("UPDATE productos SET nomb_prod = '$nombre', cod_barra = '$codbarra', tipo_prod = '$idtipo', precio_cost = '$precio_cost', porcentaje_prod ='$porcentaje', precio_unit = '$precio_uni', existencia_prod = '$existencia', iva_prod = '$iva' WHERE id_prod = '$id'");
 	break;
 }
 
 
 //ACTUALIZAMOS LOS REGISTROS Y LOS OBTENEMOS
 
-$registro = mysql_query("SELECT * FROM productos WHERE id_prod != 0 ORDER BY nomb_prod ASC");
+$registro = mysql_query("SELECT * FROM productos, tipoproductos WHERE id_prod != 0 AND tipo_prod = id_tipo_pro ORDER BY nomb_prod ASC"); 
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
@@ -45,7 +50,7 @@ echo '<table class="table table-striped table-condensed table-hover">
 		echo '<tr>
                 <td>'.$registro2['nomb_prod'].'</td>
                 <td>'.$registro2['cod_barra'].'</td>
-                <td>'.$registro2['tipo_prod'].'</td>
+                <td>'.$registro2['tipo_pro'].'</td>
                 <td>$ '.$registro2['precio_cost'].'</td>
                 <td>'.$registro2['porcentaje_prod'].' %</td>
                 <td>$ '.$registro2['precio_unit'].'</td>

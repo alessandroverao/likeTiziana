@@ -51,6 +51,17 @@ $(function(){
 		data:'dato='+dato,
 		success: function(datos){
 			$('#agrega-registros').html(datos);
+			if(document.getElementById("bs-prod").value==""){ 
+				var url = '../php/busca_producto2.php';
+				$.ajax({
+				type:'POST',
+				url:url,
+				data:'dato='+dato,
+				success: function(datos){
+					$('#agrega-registros').html(datos);
+				}
+			});
+			}
 		}
 	});
 	return false;

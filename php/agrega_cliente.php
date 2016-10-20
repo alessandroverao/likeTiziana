@@ -11,20 +11,25 @@ $cuil = $_POST['cuil'];
 $email = $_POST['email'];
 //VERIFICAMOS EL PROCESO
 
+$sql  = "SELECT * FROM tipoclientes WHERE tipo_cliente_tipo = '$tipo'";
+$result = mysql_query($sql);
+$registro = mysql_fetch_assoc($result);
+$idtipo = $registro['id_tipo_client'];
+
 switch($proceso){
 	case 'Registro':
-		mysql_query("INSERT INTO clientes (nomb_clien, tipo_clien, direccion_clien, celular_clien, fecha_reg_clien, cuil_clien, email_clien)VALUES('$nombre','$tipo','$direccion','$celular', '$fecha', '$cuil', '$email')");
+		mysql_query("INSERT INTO clientes (nomb_clien, tipo_clien, direccion_clien, celular_clien, fecha_reg_clien, cuil_clien, email_clien)VALUES('$nombre','$idtipo','$direccion','$celular', '$fecha', '$cuil', '$email')");
 	break;
 	
 	case 'Edicion':
-		mysql_query("UPDATE clientes SET nomb_clien = '$nombre', tipo_clien = '$tipo', direccion_clien = '$direccion', celular_clien = '$celular', cuil_clien = '$cuil', email_clien = '$email' WHERE id_clien = '$id'");
+		mysql_query("UPDATE clientes SET nomb_clien = '$nombre', tipo_clien = '$idtipo', direccion_clien = '$direccion', celular_clien = '$celular', cuil_clien = '$cuil', email_clien = '$email' WHERE id_clien = '$id'");
 	break;
 }
 
 
 //ACTUALIZAMOS LOS REGISTROS Y LOS OBTENEMOS
 
-$registro = mysql_query("SELECT * FROM clientes ORDER BY id_clien ASC");
+$registro = mysql_query("SELECT * FROM clientes, tipoclientes WHERE tipo_clien = id_tipo_client ORDER BY nomb_clien ASC");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
@@ -42,7 +47,7 @@ echo '<table class="table table-striped table-condensed table-hover">
 	while($registro2 = mysql_fetch_array($registro)){
 		echo '<tr>
                 <td>'.$registro2['nomb_clien'].'</td>
-                <td>'.$registro2['tipo_clien'].'</td>
+                <td>'.$registro2['tipo_cliente_tipo'].'</td>
                 <td>'.$registro2['direccion_clien'].'</td>
                 <td>'.$registro2['celular_clien'].'</td>
                 <td>'.fechaNormal($registro2['fecha_reg_clien']).'</td>

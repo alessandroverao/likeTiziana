@@ -35,7 +35,7 @@ $pdf->Ln(8);
 $pdf->SetFont('Arial', '', 8);
 //CONSULTA
 
-$productos = mysql_query("SELECT * FROM productos WHERE tipo_prod = '$tipo'");
+$productos = mysql_query("SELECT * FROM productos, tipoproductos WHERE tipo_prod = id_tipo_pro AND tipo_pro = '$tipo'"); 
 
 
 while($productos2 = mysql_fetch_array($productos)){
@@ -43,7 +43,7 @@ while($productos2 = mysql_fetch_array($productos)){
 	$pdf->Cell(5, 8, $productos2['id_prod'], 0);
 	$pdf->Cell(55, 8, $productos2['nomb_prod'], 0);
 	$pdf->Cell(25, 8, $productos2['cod_barra'], 0);
-	$pdf->Cell(20, 8, $productos2['tipo_prod'], 0);
+	$pdf->Cell(20, 8, $productos2['tipo_pro'], 0);
 	$pdf->Cell(18, 8, $productos2['precio_cost'], 0);
 	$pdf->Cell(15, 8, $productos2['porcentaje_prod'], 0);
 	$pdf->Cell(18, 8, $productos2['precio_unit'], 0);

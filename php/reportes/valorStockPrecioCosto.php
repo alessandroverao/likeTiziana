@@ -104,14 +104,14 @@
 	<?php
 		include('../../php/conexion.php');
 
-        $registro = mysql_query("SELECT * FROM productos"); 
+        $registro = mysql_query("SELECT * FROM productos, tipoproductos WHERE tipo_prod = id_tipo_pro");
         if(!empty($registro)){
 	        while($registro2 = mysql_fetch_array($registro)){
 	        	echo '<tr>
 	        				<td>'.$registro2['id_prod'].'</td>
 							<td>'.$registro2['nomb_prod'].'</td>
 	                        <td>'.$registro2['cod_barra'].'</td>
-	                        <td>'.$registro2['tipo_prod'].'</td>
+	                        <td>'.$registro2['tipo_pro'].'</td>
 	                        <td>'.$registro2['precio_cost'].'</td>
 	                        <td>'.$registro2['existencia_prod'].'</td>
 	                        <td>'.$registro2['precio_cost'] * $registro2['existencia_prod'].'</td>

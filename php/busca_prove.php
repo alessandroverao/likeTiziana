@@ -5,7 +5,7 @@ $dato = $_POST['dato'];
 
 //EJECUTAMOS LA CONSULTA DE BUSQUEDA
 
-$registro = mysql_query("SELECT * FROM proveedores WHERE nomb_prove LIKE '%$dato%' OR tipo_prove LIKE '%$dato%' OR celular_prove LIKE '%$dato%' OR cuil_prove LIKE '%$dato%' ORDER BY id_prove ASC");
+$registro = mysql_query("SELECT * FROM proveedores, tipoclientes WHERE nomb_prove LIKE '%$dato%' AND tipo_prove = id_tipo_client OR tipo_cliente_tipo LIKE '%$dato%' AND tipo_prove = id_tipo_client OR celular_prove LIKE '%$dato%' AND tipo_prove = id_tipo_client OR cuil_prove LIKE '%$dato%' AND tipo_prove = id_tipo_client ORDER BY nomb_prove ASC");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
@@ -24,7 +24,7 @@ if(mysql_num_rows($registro)>0){
 	while($registro2 = mysql_fetch_array($registro)){
 		echo '<tr>
                 <td>'.$registro2['nomb_prove'].'</td>
-                <td>'.$registro2['tipo_prove'].'</td>
+                <td>'.$registro2['tipo_cliente_tipo'].'</td>
                 <td>'.$registro2['direccion_prove'].'</td>
                 <td>'.$registro2['celular_prove'].'</td>
                 <td>'.fechaNormal($registro2['fecha_reg_prove']).'</td>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 14-10-2016 a las 14:28:48
+-- Tiempo de generación: 18-10-2016 a las 14:59:55
 -- Versión del servidor: 5.5.8
 -- Versión de PHP: 5.3.5
 
@@ -28,7 +28,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE IF NOT EXISTS `clientes` (
   `id_clien` int(11) NOT NULL AUTO_INCREMENT,
   `nomb_clien` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
-  `tipo_clien` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+  `tipo_clien` int(11) NOT NULL,
   `direccion_clien` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `celular_clien` bigint(13) NOT NULL,
   `fecha_reg_clien` date NOT NULL,
@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 --
 
 INSERT INTO `clientes` (`id_clien`, `nomb_clien`, `tipo_clien`, `direccion_clien`, `celular_clien`, `fecha_reg_clien`, `cuil_clien`, `email_clien`) VALUES
-(2, 'RAUL GONZALEZ', 'Monotributo Social', 'AV. SAN MARTIN 356', 3743454896, '2016-09-07', 20489669848, 'raul@gmail.com'),
-(3, 'CONSUMIDOR FINAL', 'Consumidor Final', 'XXXXXX', 999999999, '2016-09-27', 99999999999, 'consumidor@final.com');
+(2, 'RAUL GONZALEZ', 9, 'AV. SAN MARTIN 356', 3743454896, '2016-09-07', 20489669848, 'raul@gmail.com'),
+(3, 'CONSUMIDOR FINAL', 2, 'XXXXXX', 999999999, '2016-09-27', 99999999999, 'consumidor@final.com');
 
 -- --------------------------------------------------------
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `detalleventa` (
   `importe_detalle` decimal(10,2) NOT NULL,
   `estadodetalle` int(1) NOT NULL,
   PRIMARY KEY (`id_detalle`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=22 ;
 
 --
 -- Volcar la base de datos para la tabla `detalleventa`
@@ -109,7 +109,8 @@ INSERT INTO `detalleventa` (`id_detalle`, `id_venta_detalle`, `id_prod_detalle`,
 (17, 12, 9, 1, '50.00', 0),
 (18, 13, 11, 1, '49.00', 0),
 (19, 14, 10, 1, '35.00', 0),
-(20, 15, 8, 1, '28.00', 0);
+(20, 15, 8, 1, '28.00', 0),
+(21, 16, 7, 1, '5.50', 0);
 
 -- --------------------------------------------------------
 
@@ -121,16 +122,14 @@ CREATE TABLE IF NOT EXISTS `notas` (
   `cod_notas` int(3) NOT NULL AUTO_INCREMENT,
   `contenido` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`cod_notas`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=2 ;
 
 --
 -- Volcar la base de datos para la tabla `notas`
 --
 
 INSERT INTO `notas` (`cod_notas`, `contenido`) VALUES
-(1, 'HACER REPORTE FACTURAS'),
-(2, 'HACER REPORTE COMPRAS --- POR PROVEEDOR --- POR FECHAS'),
-(3, 'ARREGLAR TABLA CLIENTES, PROVEEDORES, PRODUCTOS...  DISMINUIR LA REDUNDANCIA E INCONSISTENCIA DE DATOS.');
+(1, 'ARREGLAR TABLA CLIENTES, PROVEEDORES, PRODUCTOS... DISMINUIR LA REDUNDANCIA E INCONSISTENCIA DE DATOS.');
 
 -- --------------------------------------------------------
 
@@ -142,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `id_prod` int(11) NOT NULL AUTO_INCREMENT,
   `nomb_prod` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `cod_barra` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `tipo_prod` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `tipo_prod` int(11) NOT NULL,
   `precio_cost` decimal(10,2) NOT NULL,
   `porcentaje_prod` decimal(5,2) NOT NULL,
   `precio_unit` decimal(10,2) NOT NULL,
@@ -150,25 +149,26 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `fecha_reg` date NOT NULL,
   `iva_prod` decimal(3,2) NOT NULL,
   PRIMARY KEY (`id_prod`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=13 ;
 
 --
 -- Volcar la base de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`id_prod`, `nomb_prod`, `cod_barra`, `tipo_prod`, `precio_cost`, `porcentaje_prod`, `precio_unit`, `existencia_prod`, `fecha_reg`, `iva_prod`) VALUES
-(0, 'VARIOS', '', 'OTRO', '0.00', '0.00', '0.00', 0, '2016-10-08', '0.00'),
-(1, 'TANG ANANA', '7622300868604', 'JUGO', '4.23', '30.02', '5.50', 48, '2016-09-07', '0.00'),
-(2, 'TANG NARANJA', '7622300868482', 'JUGO', '4.23', '30.02', '5.50', 48, '2016-09-07', '0.00'),
-(3, 'QUESO RALLADO ILOLAY 40GR', '7790787251780', 'COMESTIBLE', '13.84', '30.06', '18.00', 48, '2016-09-07', '0.00'),
-(4, 'SERRANAS SANDWICH X112G', '7790040704800', 'COMESTIBLE', '6.00', '33.33', '8.00', 48, '2016-09-27', '0.00'),
-(5, 'BELDENT UVA', '77941596', 'GOLOSINA', '4.00', '37.50', '5.50', 48, '2016-09-27', '0.00'),
-(6, 'BELDENT ULTRA DEFENSE', '77916419', 'GOLOSINA', '4.00', '37.50', '5.50', 49, '2016-09-27', '0.00'),
-(7, 'BELDENT FRUTA', '77916389', 'GOLOSINA', '4.00', '37.50', '5.50', 49, '2016-09-27', '0.00'),
-(8, 'MAGISTRAL MARINA X300ML', '7500435023115', 'LIMPIEZA', '21.50', '30.23', '28.00', 48, '2016-09-27', '0.00'),
-(9, 'DEMETRIUS BLANCO DULCE X750ML', '7798114091986', 'VINO', '38.45', '30.04', '50.00', 48, '2016-09-27', '0.00'),
-(10, 'BUDWEISER X1000CM3', '7793147001056', 'CERVEZA', '26.90', '30.11', '35.00', 48, '2016-09-27', '0.00'),
-(11, 'COCA-COLA X2.5L', '7790895005794', 'GASEOSA', '37.50', '30.67', '49.00', 48, '2016-09-27', '0.00');
+(0, 'VARIOS', '', 0, '0.00', '0.00', '0.00', 10, '2016-10-08', '0.00'),
+(1, 'TANG ANANA', '7622300868604', 6, '4.23', '30.02', '5.50', 48, '2016-09-07', '0.00'),
+(2, 'TANG NARANJA', '7622300868482', 6, '4.23', '30.02', '5.50', 48, '2016-09-07', '0.00'),
+(3, 'QUESO RALLADO ILOLAY 40GR', '7790787251780', 9, '13.84', '30.06', '18.00', 48, '2016-09-07', '0.00'),
+(4, 'SERRANAS SANDWICH X112G', '7790040704800', 3, '6.00', '33.33', '8.00', 48, '2016-09-27', '0.00'),
+(5, 'BELDENT UVA', '77941596', 4, '4.00', '37.50', '5.50', 48, '2016-09-27', '0.00'),
+(6, 'BELDENT ULTRA DEFENSE', '77916419', 4, '4.00', '37.50', '5.50', 49, '2016-09-27', '0.00'),
+(7, 'BELDENT FRUTA', '77916389', 4, '4.00', '37.50', '5.50', 48, '2016-09-27', '0.00'),
+(8, 'MAGISTRAL MARINA X300ML', '7500435023115', 1, '21.50', '30.23', '28.00', 48, '2016-09-27', '0.00'),
+(9, 'DEMETRIUS BLANCO DULCE X750ML', '7798114091986', 7, '38.45', '30.04', '50.00', 48, '2016-09-27', '0.00'),
+(10, 'BUDWEISER X1000CM3', '7793147001056', 8, '26.90', '30.11', '35.00', 48, '2016-09-27', '0.00'),
+(11, 'COCA-COLA X2.5L', '7790895005794', 5, '37.50', '30.67', '49.00', 48, '2016-09-27', '0.00'),
+(12, 'MIEL', '564654654654', 9, '30.00', '30.00', '39.00', 5, '2016-10-17', '0.00');
 
 -- --------------------------------------------------------
 
@@ -179,7 +179,7 @@ INSERT INTO `productos` (`id_prod`, `nomb_prod`, `cod_barra`, `tipo_prod`, `prec
 CREATE TABLE IF NOT EXISTS `proveedores` (
   `id_prove` int(11) NOT NULL AUTO_INCREMENT,
   `nomb_prove` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
-  `tipo_prove` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
+  `tipo_prove` int(11) NOT NULL,
   `direccion_prove` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `celular_prove` bigint(13) NOT NULL,
   `fecha_reg_prove` date NOT NULL,
@@ -193,8 +193,8 @@ CREATE TABLE IF NOT EXISTS `proveedores` (
 --
 
 INSERT INTO `proveedores` (`id_prove`, `nomb_prove`, `tipo_prove`, `direccion_prove`, `celular_prove`, `fecha_reg_prove`, `cuil_prove`, `email_prove`) VALUES
-(1, 'VENDE TODO SA', 'Responsable Inscripto', 'BELGRANO 999', 3743489698, '2016-09-07', 20489669848, 'vende@hotmail.com'),
-(2, 'CARLOS TRAFFIC', 'Consumidor Final', 'PUERTO RICO', 3743454566, '2016-10-12', 20454545456, 'carlos@gmail.com');
+(1, 'VENDE TODO SA', 9, 'BELGRANO 999', 3743489698, '2016-09-07', 20489669848, 'vende@hotmail.com'),
+(2, 'CARLOS TRAFFIC', 10, 'PUERTO RICO', 3743454566, '2016-10-12', 20454545456, 'carlos@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -295,16 +295,17 @@ CREATE TABLE IF NOT EXISTS `ventas` (
 INSERT INTO `ventas` (`id_venta`, `estadoventa`, `fecha_venta`, `id_clien_venta`, `impresiones`) VALUES
 (1, 0, '2016-10-12', 3, 1),
 (2, 0, '2016-10-12', 3, 1),
-(3, 1, '2016-10-12', 3, 0),
+(3, 1, '2016-10-12', 3, 1),
 (4, 0, '2016-10-14', 3, 0),
 (5, 0, '2016-10-14', 3, 0),
 (6, 0, '2016-10-14', 3, 0),
 (7, 0, '2016-10-14', 3, 0),
 (8, 0, '2016-10-14', 3, 0),
 (9, 0, '2016-10-14', 3, 0),
-(10, 0, '2016-10-14', 3, 0),
-(11, 0, '2016-10-14', 3, 0),
-(12, 0, '2016-10-14', 3, 0),
+(10, 0, '2016-10-14', 3, 1),
+(11, 0, '2016-10-14', 3, 1),
+(12, 0, '2016-10-14', 3, 1),
 (13, 0, '2016-10-14', 3, 1),
 (14, 0, '2016-10-14', 3, 1),
-(15, 0, '2016-10-14', 3, 1);
+(15, 0, '2016-10-14', 3, 1),
+(16, 0, '2016-10-17', 3, 1);

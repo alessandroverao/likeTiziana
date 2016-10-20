@@ -14,10 +14,10 @@
 		padding:0;
 	}
 	#caja {
-		background:#252932;
+		background:rgba(37, 41, 50, 0.0);
 		width:200px;
 		/*border:1px solid black;*/
-		margin:200px auto;
+		margin:100px auto;
 		padding:1em;
 		border-radius:6px;
 	}
@@ -37,7 +37,7 @@
 		text-align: left;
 		outline:none;
 	}
-	input[type=submit], form a{
+	input[type=submit]{
 		display:inline-block;
 		padding:1em;
 		width:200px;
@@ -71,7 +71,7 @@
 	}
 
 	body{
-			background: #252932;
+			background:rgba(37, 41, 50, 1);
 ;
 	</style>
 	<head>
@@ -90,5 +90,4 @@
 			</form>
 		</div>
 	</body>
-
 </html>

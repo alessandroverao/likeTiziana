@@ -108,13 +108,13 @@
 	<?php
 		include('../../php/conexion.php');
 
-        $registro = mysql_query("SELECT * FROM clientes WHERE tipo_clien = '$tipo'"); 
+        $registro = mysql_query("SELECT * FROM clientes, tipoclientes WHERE tipo_clien = id_tipo_client AND tipo_cliente_tipo = '$tipo'ORDER BY nomb_clien ASC"); 
         if(!empty($registro)){
 	        while($registro2 = mysql_fetch_array($registro)){
 	        	echo '<tr>
 	        				<td>'.$registro2['id_clien'].'</td>
 							<td>'.$registro2['nomb_clien'].'</td>
-	                        <td>'.$registro2['tipo_clien'].'</td>
+	                        <td>'.$registro2['tipo_cliente_tipo'].'</td>
 	                        <td>'.$registro2['direccion_clien'].'</td>
 	                        <td>'.$registro2['celular_clien'].'</td>
 	                        <td>'.$registro2['fecha_reg_clien'].'</td>

@@ -30,14 +30,14 @@ $pdf->Ln(8);
 $pdf->SetFont('Arial', '', 8);
 //CONSULTA
 
-$productos = mysql_query("SELECT * FROM productos");
+$productos = mysql_query("SELECT * FROM productos, tipoproductos WHERE tipo_prod = id_tipo_pro");
 $totaluni = 0;
 while($productos2 = mysql_fetch_array($productos)){
 	$totaluni = $totaluni + $productos2['precio_unit'] * $productos2['existencia_prod'];
 	$pdf->Cell(10, 8, $productos2['id_prod'], 0);
 	$pdf->Cell(65, 8, $productos2['nomb_prod'], 0);
 	$pdf->Cell(25, 8, $productos2['cod_barra'], 0);
-	$pdf->Cell(30, 8, $productos2['tipo_prod'], 0);
+	$pdf->Cell(30, 8, $productos2['tipo_pro'], 0);
 	$pdf->Cell(25, 8, $productos2['precio_unit'], 0);
 	$pdf->Cell(25, 8, $productos2['existencia_prod'], 0);
 	$pdf->Cell(30, 8, $productos2['precio_unit'] * $productos2['existencia_prod'], 0);

@@ -11,7 +11,7 @@
 	<style>
 		body{
 			font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-			width: 700px;
+			width: 900px;
 			margin: 20px auto;
 			text-align: center;
 		}
@@ -72,7 +72,7 @@
 		<li><a class="btn btn-primary filter" data-filter=".ventas">Ventas</a></li>
 		<li><a class="btn btn-primary filter" data-filter=".clientes">Clientes</a></li>
 		<li><a class="btn btn-primary filter" data-filter=".proveedores">Proveedores</a></li>
-		<!--<li><a href="#" class="btn btn-default sort" data-sort="random"><span>Aleatorio</span></a></li>-->
+		<li><a class="btn btn-default sort" data-sort="random"><span>Aleatorio</span></a></li>
 		<li><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></li>
 	</ul>
 	<div id="container">
@@ -92,8 +92,8 @@
 		<a class="mix ventas" href="../php/reportes/detallesAnulados.php">Detalles anulados</a>
 		<a class="mix ventas" href="../php/reportes/imprimirTicket.php">Imprimir ticket</a>
 		<a class="mix proveedores" href="../php/reportes/todasLasCompras.php">Todas las compras</a>
-		<a class="mix proveedores" href="../php/reportes/todasLasComprasPorProveedor.php">Todas las compras por proveedor</a>
-		
+		<a class="mix proveedores" href="../php/reportes/todasLasComprasPorProvedor.php">Todas las compras por proveedor</a>
+		<a class="mix proveedores" href="../php/reportes/todasLasComprasEntreFecha.php">Todas las compras entre fechas</a>
 	</div>
 </body>
 </html>

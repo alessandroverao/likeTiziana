@@ -5,7 +5,7 @@ $dato = $_POST['dato'];
 
 //EJECUTAMOS LA CONSULTA DE BUSQUEDA
 
-$registro = mysql_query("SELECT * FROM productos, tipoproductos WHERE nomb_prod LIKE '%$dato%' AND tipo_prod = id_tipo_pro OR tipo_pro LIKE '%$dato%' AND tipo_prod = id_tipo_pro OR cod_barra LIKE '%$dato%' AND tipo_prod = id_tipo_pro ORDER BY nomb_prod ASC");
+$registro = mysql_query("SELECT * FROM productos, tipoproductos WHERE tipo_prod = id_tipo_pro ORDER BY nomb_prod ASC");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
@@ -33,10 +33,6 @@ if(mysql_num_rows($registro)>0){
 				<td><a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a></td>
 				</tr>';
 	}
-}else{
-	echo '<tr>
-				<td colspan="6">No se encontraron resultados</td>
-			</tr>';
 }
 echo '</table>';
 ?>

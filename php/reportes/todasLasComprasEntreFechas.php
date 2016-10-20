@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Todos los proveedores</title>
+	<title>Todas las compras entre fechas</title>
 	<LINK rel="icon" href="../../favicon.ico" />
 	<link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +25,21 @@
 		ul li{
 			display: table-cell;
 			padding: 0 5px;
+		}
+		input[type=date] {
+			height: 35px;
+			size: 50px;
+			text-align: center;
+		 	margin: 0 auto;
+		  	width: 100%;
+		  	font-size: 18px;
+		  	font-weight: bold;
+		  	text-transform: uppercase;
+		  	background-color: lighten(#2f2f2f,40%);
+		  	outline: none;
+		  	border:1px solid #6F96DF;
+		  	padding: 0 3px;
+		  	color: black;
 		}
 		ul li a{
 			display: block;
@@ -66,59 +81,72 @@
 			font-size:20px;
 		}
 	</style>
-	</head>
+	<script>
+		$(document).on('ready', function(){
+			var valorASumar
+		    suma = 0;		
+		    var table = document.getElementById('venta'), rows = table.getElementsByTagName('tr'), i, j, cells;
+		    for (i = 0, j = rows.length; i < j; ++i) {
+		        cells = rows[i].getElementsByTagName('td');
+		        if (!cells.length) {
+		            continue;
+		        }
+		        valorASumar = cells[2].innerHTML;
+		        suma += parseFloat(valorASumar);
+    		}
+			document.getElementById("totaltxt").value = parseFloat(suma);
+		})
+	</script>
+</head>
 <body>
-	<h1><big><strong><font color="#333333">TODOS LOS PROVEEDORES</strong></big></h1>
+	<?php
+		$fecha1 = $_POST['fecha1'];
+		$fecha2 = $_POST['fecha2'];
+	?>
+	<h1><big><strong><font color="#333333">TODAS LAS COMPRAS ENTRE FECHAS</strong></big></h1>
 	<hr>
 	<ul>
 		<li><form><button onclick="javascript:reportePDF();" class="btn btn-danger">Exportar a PDF</button></form></li>
-		<li><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></li>
+		<li><form><button id="volver" class="btn btn-primary" onclick="history.back()">Volver</button></form></li>
+		<li><form><input type="date" id="fecha1" value="<?php echo $fecha1; ?>" disabled></form></li>
+		<li><form><input type="date" id="fecha2" value="<?php echo $fecha2; ?>" disabled></form></li>
 	</ul>
 	<div class="registros" id="venta">
         <table class="table table-striped table-condensed table-hover">
             <tr>
-            	<th width="20">ID</th>
-                <th width="250">Nombre</th>
-                <th width="200">Tipo</th>
-                <th width="250">Dirección</th>
-                <th width="150">Celular</th>
-                <th width="150">Fecha Reg.</th>
-                <th width="100">CUIL</th>
-                <th width="130">EMAIL</th>
-                
+            	<th width="300">Proveedor</th>
+                <th width="300">Fecha compra</th>
+                <th width="300">Importe compra</th>
             </tr>
 	<?php
-		include('../../php/conexion.php');
+		include('../../php/conexion2.php');
 
-        $registro = mysql_query("SELECT * FROM proveedores,  tipoclientes WHERE tipo_prove = id_tipo_client ORDER BY nomb_prove ASC");
+        $registro = mysql_query("SELECT * FROM compras, proveedores WHERE fecha_compra BETWEEN '$fecha1' AND '$fecha2' AND id_provee_compra = id_prove");
         if(!empty($registro)){
 	        while($registro2 = mysql_fetch_array($registro)){
 	        	echo '<tr>
-	        				<td>'.$registro2['id_prove'].'</td>
-							<td>'.$registro2['nomb_prove'].'</td>
-	                        <td>'.$registro2['tipo_cliente_tipo'].'</td>
-	                        <td>'.$registro2['direccion_prove'].'</td>
-	                        <td>'.$registro2['celular_prove'].'</td>
-	                        <td>'.$registro2['fecha_reg_prove'].'</td>
-	                        <td>'.$registro2['cuil_prove'].'</td>
-	                        <td>'.$registro2['email_prove'].'</td>
+	        				<td>'.$registro2['nomb_prove'].'</td>
+							<td>'.$registro2['fecha_compra'].'</td>
+	                        <td>'.$registro2['importe_compra'].'</td>
 	                </tr>'; 
 	       	}
        }
     ?>
     </table>
     </div>
-    <!--<section id="total">
+    <section id="total">
     <table id="totales">
         <tr>
             <td><label for="totallbl">TOTAL $ </label></td>
-            <td width="300"><input type="number" id="totaltxt" name="totaltxt" step="any" disabled /></td>
+            <td width="300"><input type="number" id="totaltxt" name="totaltxt" step="0.01" disabled /></td>
         </tr>
     </table>
-    </section>-->
+    </section>
     <script>
-	    function reportePDF(){
-			window.open('todosLosProveedoresPDF.php');
+    	function reportePDF(){
+    		var desde = $('#fecha1').val();
+    		var hasta = $('#fecha2').val();
+			window.open('todasLasComprasEntreFechasPDF.php?desde='+desde+'&hasta='+hasta);
 			history.back();
 		}
     </script>

@@ -103,14 +103,14 @@
 	<?php
 		include('../../php/conexion.php');
 		$fecha = date('Y-m-d');
-        $registro = mysql_query("SELECT * FROM productos, clientes, ventas, detalleventa WHERE id_venta = id_venta_detalle AND id_prod = id_prod_detalle AND fecha_venta = '$fecha' AND id_clien_venta = id_clien AND estadodetalle = 0");
+        $registro = mysql_query("SELECT * FROM productos, tipoproductos, clientes, ventas, detalleventa WHERE id_venta = id_venta_detalle AND id_prod = id_prod_detalle AND fecha_venta = '$fecha' AND id_clien_venta = id_clien AND estadodetalle = 0 AND tipo_prod = id_tipo_pro");
         if(!empty($registro)){
 	        while($registro2 = mysql_fetch_array($registro)){
 	        	echo '<tr>
 	        				<td>'.$registro2['id_venta'].'</td>
 							<td>'.$registro2['nomb_prod'].'</td>
 	                        <td>'.$registro2['cod_barra'].'</td>
-	                        <td>'.$registro2['tipo_prod'].'</td>
+	                        <td>'.$registro2['tipo_pro'].'</td>
 	                        <td>'.$registro2['importe_detalle'].'</td>
 	                        <td>'.$registro2['nomb_clien'].'</td>
 	                </tr>'; 

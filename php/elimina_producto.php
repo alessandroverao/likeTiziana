@@ -9,7 +9,7 @@ mysql_query("DELETE FROM productos WHERE id_prod = '$id'");
 
 //ACTUALIZAMOS LOS REGISTROS Y LOS OBTENEMOS
 
-$registro = mysql_query("SELECT * FROM productos ORDER BY nomb_prod ASC");
+$registro = mysql_query("SELECT * FROM productos, tipoproductos WHERE tipo_prod = id_tipo_pro ORDER BY nomb_prod ASC"); 
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
@@ -28,7 +28,7 @@ echo '<table class="table table-striped table-condensed table-hover">
 		echo '<tr>
                 <td>'.$registro2['nomb_prod'].'</td>
                 <td>'.$registro2['cod_barra'].'</td>
-                <td>'.$registro2['tipo_prod'].'</td>
+                <td>'.$registro2['tipo_pro'].'</td>
                 <td>$ '.$registro2['precio_cost'].'</td>
                 <td>'.$registro2['porcentaje_prod'].'</td>
                 <td>$ '.$registro2['precio_unit'].'</td>
