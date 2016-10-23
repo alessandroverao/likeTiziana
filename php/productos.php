@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"> <!--Copyright 2016 nk9mhp <nk9mhp@DESKTOP-LOGHESU> alessandroverao-->
 <head>
+<?php include("../php/seguridad.php"); ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Productos</title>
@@ -60,7 +61,7 @@ function porcentajeAplicado(){
             </tr>
         <?php
             include('../php/conexion.php');
-            $registro = mysql_query("SELECT * FROM productos, tipoproductos WHERE tipo_prod = id_tipo_pro ORDER BY nomb_prod ASC"); 
+            $registro = mysql_query("SELECT * FROM productos, tipoproductos WHERE tipo_prod = id_tipo_pro AND nomb_prod != 'VARIOS' ORDER BY nomb_prod ASC"); 
             while($registro2 = mysql_fetch_array($registro)){
                 echo '<tr>
                         <td>'.$registro2['nomb_prod'].'</td>
@@ -135,6 +136,7 @@ function porcentajeAplicado(){
                     <tr>
                         <td>Existencia: </td>
                         <td><input type="number"  required="required" min="0" max="9999999999" name="existencia" id="existencia"/></td>
+                        <td><input type="number"  required="required" min="1" max="999999999" name="existenciaedt" id="existenciaedt"/></td>
                     </tr>
                         <td>IVA:</td>
                         <td><input type="number" name="iva" id="iva" pattern="[0-9]{1,3}+\,[0-9]{1,2}$" placeholder="21.00" step="any"/></td>

@@ -13,14 +13,26 @@
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<script src="../js/jquery.js"></script>
 	</head>
+		<script>
+			$(document).ready(function() {
+				var usuario = "<?php echo $_SESSION['privilegio'] ?>"; 
+				var cps = document.getElementById('cps');
+				var hrs = document.getElementById('hrs');
+				if(usuario == 2){
+					cps.style.display = 'none'; 
+					rps.style.display = 'none'; 
+				}
+
+			});
+		</script>
 	<body>
 		<header class="header2">
 			<div class="wrapper">
 				<div class="logo" onclick="pagina();">likeTiziana</div>
 				<nav>
 					<a href="../php/ventas.php">Ventas</a>
-					<a href="../php/compras.php">Compras</a>
-					<a href="../php/reportes.php">Reportes</a>
+					<a id="cps" href="../php/compras.php">Compras</a>
+					<a id="rps" href="../php/reportes.php">Reportes</a>
 					<a href="../php/herramientas.php">Herramientas</a>
 					<a href="../php/notas_rapidas.php">Notas</a> 
 					<a href="../php/salir.php">Salir</a>

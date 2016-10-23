@@ -8,7 +8,6 @@ $tipo = $_POST['tipo'];
 $precio_cost = $_POST['precio-cost'];
 $porcentaje = $_POST['porcentaje'];
 $precio_uni = $_POST['precio-uni'];
-$existencia = $_POST['existencia'];
 $iva = $_POST['iva'];
 $fecha = date('Y-m-d');
 //VERIFICAMOS EL PROCESO
@@ -20,18 +19,20 @@ $idtipo = $registro['id_tipo_pro'];
 
 switch($proceso){
 	case 'Registro':
+        $existencia = $_POST['existencia'];
 		mysql_query("INSERT INTO productos (nomb_prod, cod_barra, tipo_prod, precio_cost, porcentaje_prod, precio_unit, existencia_prod, fecha_reg, iva_prod)VALUES('$nombre','$codbarra','$idtipo','$precio_cost','$porcentaje','$precio_uni','$existencia', '$fecha', '$iva')");
 	break;
 	
 	case 'Edicion':
-		mysql_query("UPDATE productos SET nomb_prod = '$nombre', cod_barra = '$codbarra', tipo_prod = '$idtipo', precio_cost = '$precio_cost', porcentaje_prod ='$porcentaje', precio_unit = '$precio_uni', existencia_prod = '$existencia', iva_prod = '$iva' WHERE id_prod = '$id'");
+        $existenciaedt = $_POST['existenciaedt'];
+		mysql_query("UPDATE productos SET nomb_prod = '$nombre', cod_barra = '$codbarra', tipo_prod = '$idtipo', precio_cost = '$precio_cost', porcentaje_prod ='$porcentaje', precio_unit = '$precio_uni', existencia_prod = existencia_prod + '$existenciaedt', iva_prod = '$iva' WHERE id_prod = '$id'");
 	break;
 }
 
 
 //ACTUALIZAMOS LOS REGISTROS Y LOS OBTENEMOS
 
-$registro = mysql_query("SELECT * FROM productos, tipoproductos WHERE id_prod != 0 AND tipo_prod = id_tipo_pro ORDER BY nomb_prod ASC"); 
+$registro = mysql_query("SELECT * FROM productos, tipoproductos WHERE id_prod != 0 AND tipo_prod = id_tipo_pro AND nomb_prod != 'VARIOS' ORDER BY nomb_prod ASC"); 
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 

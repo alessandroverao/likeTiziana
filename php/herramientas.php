@@ -15,6 +15,19 @@
 		<script src="../js/jquery.js"></script>
 		
 	</head>
+	<script>
+		$(document).ready(function() {
+			var usuario = "<?php echo $_SESSION['privilegio'] ?>"; 
+			var pvs = document.getElementById('pvs');
+			var imps = document.getElementById('imps');
+			var uss = document.getElementById('uss');
+			if(usuario == 2){
+				pvs.style.display = 'none'; 
+				imps.style.display = 'none'; 
+				uss.style.display = 'none'; 
+			}
+		});
+	</script>
 	<body>
 		<header class="header2">
 			<div class="wrapper">
@@ -23,9 +36,9 @@
 					<a href="../php/menu.php">Atras</a> 
 					<a href="../php/productos.php">Productos</a>
 					<a href="../php/clientes.php">Clientes</a> 
-					<a href="../php/proveedores.php">Proveedores</a> 
-					<a href="../php/importarProductos.php">Importar</a>
-					<a href="../php/notas_rapidas.php">Notas</a> 
+					<a id="pvs" href="../php/proveedores.php">Proveedores</a> 
+					<a id="imps" href="../php/importarProductos.php">Importar</a>
+					<a id="uss" href="../php/usuarios.php">Usuarios</a> 
 				</nav>
 			</div>
 		</header>

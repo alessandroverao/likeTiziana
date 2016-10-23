@@ -1,6 +1,7 @@
 <!DOCTYPE html>    <!--Copyright 2016 nk9mhp <nk9mhp@DESKTOP-LOGHESU> alessandroverao-->
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
+        <?php include("../php/seguridad.php"); ?>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Importar</title>

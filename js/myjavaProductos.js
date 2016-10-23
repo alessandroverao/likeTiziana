@@ -36,6 +36,8 @@ $(function(){
 		$('#pro').val('Registro');
 		$('#edi').hide();
 		$('#reg').show();
+		document.getElementById("existenciaedt").disabled = true;
+		document.getElementById("existencia").disabled = false;
 		$('#registra-producto').modal({
 			show:true,
 			backdrop:'static'
@@ -131,6 +133,8 @@ function editarProducto(id){
 				$('#precio-uni').val(datos[5]);
 				$('#existencia').val(datos[6]);
 				$('#iva').val(datos[7]);
+				document.getElementById("existenciaedt").disabled = false;
+				document.getElementById("existencia").disabled = true;
 				$('#registra-producto').modal({
 					show:true,
 					backdrop:'static'

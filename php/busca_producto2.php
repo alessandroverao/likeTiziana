@@ -5,7 +5,7 @@ $dato = $_POST['dato'];
 
 //EJECUTAMOS LA CONSULTA DE BUSQUEDA
 
-$registro = mysql_query("SELECT * FROM productos, tipoproductos WHERE tipo_prod = id_tipo_pro ORDER BY nomb_prod ASC");
+$registro = mysql_query("SELECT * FROM productos, tipoproductos WHERE tipo_prod = id_tipo_pro AND nomb_prod != 'VARIOS' ORDER BY nomb_prod ASC");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
