@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"> <!--Copyright 2016 nk9mhp <nk9mhp@DESKTOP-LOGHESU> alessandroverao-->
 <head>
 <?php include("../php/seguridad.php"); ?>
+<?php include("../php/privilegio.php"); ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Usuarios</title>
@@ -22,7 +23,7 @@
     <table border="0" align="center">
         <tr>
             <td width="100"><button id="nuevo-usu" class="btn btn-primary">Nuevo</button></td>
-            <td witdh="200"><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></td>
+            <td witdh="200"><a id="volver" class="btn btn-primary" href="herramientas.php">Volver</td>
         </tr>
     </table>
     </section>
@@ -43,7 +44,7 @@
                         <td>'.$registro2['idusuario'].'</td>
                         <td>'.$registro2['nombestado'].'</td>
                         <td>'.$registro2['nombprivi'].'</td>
-                        <td><a href="javascript:editarUsu('.$registro2['iduso'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarUsu('.$registro2['iduso'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+                        <td><a style="font-size: 20px;" href="javascript:editarUsu('.$registro2['iduso'].');" class="glyphicon glyphicon-edit"></a> <a style="font-size: 20px;" href="javascript:eliminarUsu('.$registro2['iduso'].');" class="glyphicon glyphicon-remove-circle"></a></td>
                     </tr>';       
             }
         ?>
@@ -69,11 +70,11 @@
                     </tr>
                     <tr>
                         <td>Usuario: </td>
-                        <td><input type="text" required="required" name="usuario" id="usuario" pattern="[A-Za-z0-9]{5,35}" placeholder="5-35 Ej.: martin"/></td>
+                        <td><input type="text" required="required" name="usuario" id="usuario" pattern="[A-Za-z0-9]{5,35}" placeholder="5-35 Ej.: martin" onBlur="javascript:validar();" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" /></td>
                     </tr>
                     <tr>
                         <td>Contraseña: </td>
-                        <td><input type="password" required="required" name="clave" id="clave" placeholder="5-35 Ej.: 12345"/></td>
+                        <td><input type="password" required="required" name="clave" id="clave" placeholder="5-35 Ej.: 12345" pattern="[a-z0-9]{5,35}" /></td>
                     </tr>
                     <tr>
                         <td>Estado: </td>

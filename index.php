@@ -84,8 +84,8 @@
 		<div id="caja">
 			<h1>Iniciar Sesión</h1>
 			<form action="php/validar.php" method="post">
-				<input type="text" placeholder="&#128272; Usuario" name="usuario" required autofocus/>
-				<input type="password" placeholder="&#128272; Contraseña" name="clave" required/>
+				<input type="text" placeholder="&#128272; Usuario" name="usuario" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" required autofocus/>
+				<input type="password" placeholder="&#128272; CONTRASEÑA" name="clave" required/>
 				<input type="submit" name="boton" value="Ingresar"/>
 			</form>
 		</div>

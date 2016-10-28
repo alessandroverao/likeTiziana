@@ -25,7 +25,7 @@ echo '<table class="table table-striped table-condensed table-hover">
                 <td>'.$registro2['idusuario'].'</td>
                 <td>'.$registro2['nombestado'].'</td>
                 <td>'.$registro2['nombprivi'].'</td>
-                <td><a href="javascript:editarUsu('.$registro2['iduso'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarUsu('.$registro2['iduso'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+                <td><a style="font-size: 20px;" href="javascript:editarUsu('.$registro2['iduso'].');" class="glyphicon glyphicon-edit"></a> <a style="font-size: 20px;" href="javascript:eliminarUsu('.$registro2['iduso'].');" class="glyphicon glyphicon-remove-circle"></a></td>
 				</tr>';
 	}
 echo '</table>';

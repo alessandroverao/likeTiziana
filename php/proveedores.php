@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"> <!--Copyright 2016 nk9mhp <nk9mhp@DESKTOP-LOGHESU> alessandroverao-->
 <head>
 <?php include("../php/seguridad.php"); ?>
+<?php include("../php/privilegio.php"); ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Proveedores</title>
@@ -23,7 +24,7 @@
         <tr>
             <td width="335"><input type="text" placeholder="Buscar un proveedor por: Nombre o Tipo" id="bs-prove" autofocus/></td>
             <td width="100"><button id="nuevo-prove" class="btn btn-primary">Nuevo</button></td>
-            <td witdh="200"><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></td>
+            <td witdh="200"><a id="volver" class="btn btn-primary" href="herramientas.php">Volver</td>
         </tr>
     </table>
     </section>
@@ -52,7 +53,7 @@
                         <td>'.fechaNormal($registro2['fecha_reg_prove']).'</td>
                         <td>'.$registro2['cuil_prove'].'</td>
                         <td>'.$registro2['email_prove'].'</td>
-                        <td><a href="javascript:editarProve('.$registro2['id_prove'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarProve('.$registro2['id_prove'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+                        <td><a style="font-size: 20px;" href="javascript:editarProve('.$registro2['id_prove'].');" class="glyphicon glyphicon-edit"></a> <a style="font-size: 20px;"href="javascript:eliminarProve('.$registro2['id_prove'].');" class="glyphicon glyphicon-remove-circle"></a></td>
                     </tr>';       
             }
         ?>

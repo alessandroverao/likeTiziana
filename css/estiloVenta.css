@@ -18,7 +18,7 @@ section{
 	margin-left: 20px;
 	margin-top:0px;	
 }
-section table tr td input, form button{
+section table tr td input, a{
 	margin-left: 20px;
 	padding: 10px;
 	width:90%;
@@ -29,7 +29,7 @@ section table tr td input, form button{
 section table tr td input:focus {
     border: 2px solid #555;
  }
-.registros{
+.registros[id=agrega-registros]{
 	margin-left: 20px;
 	width:700px;
 	height:500px;
@@ -38,6 +38,10 @@ section table tr td input:focus {
 	padding:10px;
 	overflow:auto;
 	cursor: default;
+}
+.registros tr:hover {
+	border-style: none none solid solid;
+	border-color: #6F96DF;
 }
 header[id=venta]{
 	margin:auto;

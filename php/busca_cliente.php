@@ -30,7 +30,7 @@ if(mysql_num_rows($registro)>0){
                 <td>'.fechaNormal($registro2['fecha_reg_clien']).'</td>
                 <td>'.$registro2['cuil_clien'].'</td>
                 <td>'.$registro2['email_clien'].'</td>
-				<td><a href="javascript:editarCliente('.$registro2['id_clien'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarCliente('.$registro2['id_clien'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+				<td><a style="font-size: 20px;" href="javascript:editarCliente('.$registro2['id_clien'].');" class="glyphicon glyphicon-edit"></a> <a style="font-size: 20px;" href="javascript:eliminarCliente('.$registro2['id_clien'].');" class="glyphicon glyphicon-remove-circle"></a></td>
 				</tr>';
 	}
 }else{

@@ -235,21 +235,42 @@ transition:height 0.3s;
 	color: white;
 }
 
-
-@media screen and (max-width: 780px) {
-}
-
-@media screen and (max-width: 600px) {
-}
-
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 810px) {
 
 	.wrapper { width: 100%;}
 
-	.social {
+	.social, .main, .wrap{
 		display:none;
 	}
-	.main{
-		display:none;
+}
+.config a{
+	width: 100%;
+	max-width: 1000px;
+	margin: auto;
+	cursor:pointer;
+	position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+	left: 10px; /* Establecemos la barra en la izquierda */
+	top: 600px; /* Bajamos la barra 200px de arriba a abajo */
+	z-index: 1000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+	text-align:center;
+	display:inline-block;
+	padding:1em;
+	width:200px;
+	margin: 0 0 1em 0;
+	background:#000;
+	border:none;
+	color:#f2f2f2;
+	line-height:normal;
+	font-size:15px;
+	font-weight:bold;
+	-webkit-transition:all 500ms ease;
+	-o-transition:all 500ms ease;
+	transition:all 500ms ease;
+	border-radius:50px;
+	text-decoration:none;
+	outline:none;
 	}
+.config a:hover{
+	background:#f56f3a;
+	cursor:pointer;
 }

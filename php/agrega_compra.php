@@ -41,7 +41,7 @@ echo '<table class="table table-striped table-condensed table-hover">
                 <td>'.$registro2['nomb_prove'].'</td>
                 <td>$ '.$registro2['importe_compra'].'</td>
                 <td>'.fechaNormal($registro2['fecha_compra']).'</td>
-                <td><a href="javascript:editarCompra('.$registro2['id_compra'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarCompra('.$registro2['id_compra'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+                <td><a style="font-size: 20px;" href="javascript:editarCompra('.$registro2['id_compra'].');" class="glyphicon glyphicon-edit"></a> <a style="font-size: 20px;" href="javascript:eliminarCompra('.$registro2['id_compra'].');" class="glyphicon glyphicon-remove-circle"></a></td>
                 </tr>';
     }
 echo '</table>';

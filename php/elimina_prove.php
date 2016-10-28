@@ -33,7 +33,7 @@ echo '<table class="table table-striped table-condensed table-hover">
                 <td>'.fechaNormal($registro2['fecha_reg_prove']).'</td>
                 <td>'.$registro2['cuil_prove'].'</td>
                 <td>'.$registro2['email_prove'].'</td>
-				<td><a href="javascript:editarProve('.$registro2['id_prove'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarProve('.$registro2['id_prove'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+				<td><a style="font-size: 20px;" href="javascript:editarProve('.$registro2['id_prove'].');" class="glyphicon glyphicon-edit"></a> <a style="font-size: 20px;" href="javascript:eliminarProve('.$registro2['id_prove'].');" class="glyphicon glyphicon-remove-circle"></a></td>
 				</tr>';
 	}
 echo '</table>';

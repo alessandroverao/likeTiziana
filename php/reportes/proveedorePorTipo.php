@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include("../../php/seguridad.php"); ?>
+	<?php include("../../php/privilegio.php"); ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Proveedores por tipo</title>
@@ -28,7 +30,7 @@
 			margin-top: 10px;
 			display: block;
 		}
-		form li input, button{
+		form li input, a{
 			padding: 0 5px;
 			margin-top: 10px;
 			margin: 5px auto;
@@ -57,7 +59,8 @@
         <?php } 
         ?> 
         </select></li>
-		<li><input type="submit" id="buscar" class="btn btn-primary"><button id="volver" class="btn btn-primary" onclick="history.back()">Volver</button></li>
+		<li><input type="submit" id="buscar" class="btn btn-primary" value="BUSCAR"></li>
+		<li><a id="volver" class="btn btn-primary" href="../reportes.php">Volver</a></li>
 	</form>
 </body>
 </html>

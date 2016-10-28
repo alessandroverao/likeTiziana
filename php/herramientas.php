@@ -21,10 +21,16 @@
 			var pvs = document.getElementById('pvs');
 			var imps = document.getElementById('imps');
 			var uss = document.getElementById('uss');
+			var wrap = document.getElementById('wrap');
+			var config = document.getElementById('config');
 			if(usuario == 2){
 				pvs.style.display = 'none'; 
 				imps.style.display = 'none'; 
 				uss.style.display = 'none'; 
+			}
+			if(usuario == 1){
+				//wrap.style.display = 'none'; 
+				config.style.visibility = 'visible';
 			}
 		});
 	</script>
@@ -50,7 +56,7 @@
 					<li><a href="mailto:liketiziana@gmail.com" class="icon-mail3"></a></li>
 				</ul>
 			</div>
-			<div class="wrap">
+			<div class="wrap" id="wrap">
 				<div class="widget">
 					<div class="fecha">
 						<p id="diaSemana" class="diaSemana"></p>
@@ -67,10 +73,11 @@
 						<p>:</p>
 						<p id="segundos" class="segundos"></p>
 						<p id="ampm" class="ampm"></p>
-						
-
 					</div>
 				</div>
+			</div>
+			<div class="config" id="config" style="visibility:hidden;">
+				<a href="config.php">CONFIGURACIONES</a>
 			</div>
 			<script src="../js/reloj.js"></script>
 			<script>

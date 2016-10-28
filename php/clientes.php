@@ -23,7 +23,7 @@
         <tr>
             <td width="335"><input type="text" placeholder="Buscar un cliente por: Nombre o Tipo" id="bs-clien" autofocus/></td>
             <td width="100"><button id="nuevo-clien" class="btn btn-primary">Nuevo</button></td>
-            <td witdh="200"><form><button id="volver" class="btn btn-primary" onclick="history.back()">Volver</button></form></td>
+            <td witdh="200"><a id="volver" class="btn btn-primary" href="herramientas.php">Volver</td>
         </tr>
     </table>
     </section>
@@ -52,7 +52,7 @@
                         <td>'.fechaNormal($registro2['fecha_reg_clien']).'</td>
                         <td>'.$registro2['cuil_clien'].'</td>
                         <td>'.$registro2['email_clien'].'</td>
-                        <td><a href="javascript:editarCliente('.$registro2['id_clien'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarCliente('.$registro2['id_clien'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+                        <td><a style="font-size: 20px;" href="javascript:editarCliente('.$registro2['id_clien'].');" class="glyphicon glyphicon-edit"></a> <a style="font-size: 20px;" href="javascript:eliminarCliente('.$registro2['id_clien'].');" class="glyphicon glyphicon-remove-circle"></a></td>
                     </tr>';       
             }
         ?>

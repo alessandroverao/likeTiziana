@@ -1,4 +1,6 @@
 <?php
+include("../../php/seguridad.php");
+include("../../php/privilegio.php");
 include('../../php/conexion.php');
 
 $iddetalle = $_POST['iddetalle'];

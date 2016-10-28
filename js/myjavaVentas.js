@@ -57,19 +57,21 @@ function agregaRegistro(){
 	producto.innerHTML = nombrepro;
 	cantidad.innerHTML = cantpro;
 	precio.innerHTML = preciop * cantpro;
-	quitar.innerHTML = '<a onclick="quitaVenta(this)" class="glyphicon glyphicon-chevron-left"></a>';
+	quitar.innerHTML = '<a style="font-size: 20px;" onclick="quitaVenta(this)" class="glyphicon glyphicon-chevron-left"></a>';
 	suma += parseFloat(preciop * cantpro);
 	document.getElementById("totaltxt").value = parseFloat(suma);
 
 	$('#formulario')[0].reset();
-	$('#mensaje').addClass('bien').html('Registro completado con exito').show(200).delay(2500).hide(200);
+	$('#mensaje').addClass('bien').html('Producto agregado con exito').show(200).delay(2500).hide(200);
 	
 	return false;
 
 }
 
 
-function agregaVenta(id){
+function agregaVenta(id, exis){
+		var ctl = controlarCantidad(id, exis);
+		if(ctl <= exis){
 		var url = '../php/agrega_venta.php';
 		var qui = id;
 		$.ajax({
@@ -94,12 +96,16 @@ function agregaVenta(id){
 			    producto.innerHTML = datos[1];
 			    cantidad.innerHTML = cant;
 			    precio.innerHTML = datos[2];
-			    quitar.innerHTML = '<a onclick="quitaVenta(this)" class="glyphicon glyphicon-chevron-left"></a>';
+			    quitar.innerHTML = '<a style="font-size: 20px;" onclick="quitaVenta(this)" class="glyphicon glyphicon-chevron-left"></a>';
 			   	suma += parseFloat(datos[2]);
 				document.getElementById("totaltxt").value = parseFloat(suma);
 			}
 		});
 	return false;
+	}
+	else{
+		alert("No hay existencia");
+	}
 }
 
 function itemsventa(){
@@ -119,7 +125,7 @@ function quitaVenta(t){
 }
 
 function recuento(){
-	var valorASumar
+	var valorASumar;
     suma = 0;		
     var sumaId = 1;
     var table = document.getElementById('tablaventa'), rows = table.getElementsByTagName('tr'), i, j, cells;
@@ -232,5 +238,28 @@ function emitir(){
 			window.location.href= '../php/ventas.php';
 			location.reload();
 		}
+	}
+}
+function controlarCantidad(id, exis){
+	var existencia = exis;
+	var idpro = id;
+	var valorASumar = 1;		
+    var table = document.getElementById('tablaventa'), rows = table.getElementsByTagName('tr'), i, j, cells;
+    for (i = 0, j = rows.length; i < j; ++i) {
+        cells = rows[i].getElementsByTagName('td');
+        if (!cells.length) {
+            continue;
+        }
+        var celda = cells[1].innerHTML;
+        if( celda == idpro){
+        	valorASumar += 1;
+        }
+    }
+   	return valorASumar;
+ }
+ function enterpressalert(e, textarea){
+	var code = (e.keyCode ? e.keyCode : e.which);
+	if(code == 13) { //Enter keycode
+		alert('Presionaste Enter');
 	}
 }

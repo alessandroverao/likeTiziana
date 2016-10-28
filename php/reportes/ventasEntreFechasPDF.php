@@ -1,5 +1,6 @@
 <?php
-
+include("../../php/seguridad.php"); 
+include("../../php/privilegio.php");
 if(strlen($_GET['desde'])>0 and strlen($_GET['hasta'])>0){
 	$desde = $_GET['desde'];
 	$hasta = $_GET['hasta'];

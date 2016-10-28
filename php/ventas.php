@@ -21,10 +21,10 @@
     <section>
     <table>
         <tr>
-            <td width="335"><input type="text" placeholder="Buscar por: Nombre o Cod. Barra" id="bs-prod" autofocus/></td>
-            <td width="100"><button id="nuevo-producto" style="margin-left: 30px" class="btn btn-primary">Nuevo</button></td>
-            <td witdh="200"><button id="emitir" style="margin-left: 20px" class="btn btn-danger" onclick="javascript:emitir();">Emitir</button></td>
-            <td witdh="200"><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></td>
+            <td width="335"><input type="text" placeholder="Buscar por: Nombre o Cod. Barra" id="bs-prod" autofocus onKeyPress="enterpressalert(event, this)"; /></td>
+            <td width="100"><button id="nuevo-producto" style="margin-left: 30px" class="btn btn-primary btn-lg">No Stock</button></td>
+            <td witdh="200"><button id="emitir" style="margin-left: 20px" class="btn btn-success" onclick="javascript:emitir();">Emitir</button></td>
+           <td witdh="200"><a id="volver" class="btn btn-primary" href="menu.php">Volver</td>
         </tr>
     </table>
     </section>
@@ -47,7 +47,7 @@
                         <td>'.$registro2['cod_barra'].'</td>
                         <td>$ '.$registro2['precio_unit'].'</td>
                         <td>'.$registro2['existencia_prod'].'</td>
-                        <td><a onclick="javascript:agregaVenta('.$registro2['id_prod'].');" class="glyphicon glyphicon-chevron-right"></a> </td>
+                        <td><a style="font-size: 20px;" onclick="javascript:agregaVenta('.$registro2['id_prod'].','.$registro2['existencia_prod'].');" class="glyphicon glyphicon-chevron-right"></a> </td>
                     </tr>';      
             }
         ?>
@@ -131,7 +131,7 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <input type="submit" value="Registrar" class="btn btn-success" id="reg"/>
+                <input type="submit" value="Agregar" class="btn btn-success" id="reg"/>
             </div>
             </form>
           </div>

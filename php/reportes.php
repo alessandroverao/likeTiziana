@@ -2,6 +2,7 @@
 <html>
 <head>
 	<?php include("../php/seguridad.php"); ?>
+	<?php include("../php/privilegio.php"); ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Reportes</title>
@@ -74,7 +75,7 @@
 		<li><a class="btn btn-primary filter" data-filter=".clientes">Clientes</a></li>
 		<li><a class="btn btn-primary filter" data-filter=".proveedores">Proveedores</a></li>
 		<li><a class="btn btn-default sort" data-sort="random"><span>Aleatorio</span></a></li>
-		<li><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></li>
+		<li><a id="volver" class="btn btn-primary" href="menu.php">Volver</a></li>
 	</ul>
 	<div id="container">
 		<a class="mix ventas" href="../php/reportes/cajaDelDia.php">Caja del día</a>
@@ -95,6 +96,7 @@
 		<a class="mix proveedores" href="../php/reportes/todasLasCompras.php">Todas las compras</a>
 		<a class="mix proveedores" href="../php/reportes/todasLasComprasPorProvedor.php">Todas las compras por proveedor</a>
 		<a class="mix proveedores" href="../php/reportes/todasLasComprasEntreFecha.php">Todas las compras entre fechas</a>
+		<a class="mix ventas" href="../php/reportes/productosMasVendidos.php">Productos mas vendidos</a>
 	</div>
 </body>
 </html>

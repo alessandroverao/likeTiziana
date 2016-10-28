@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"> <!--Copyright 2016 nk9mhp <nk9mhp@DESKTOP-LOGHESU> alessandroverao-->
 <head>
 <?php include("../php/seguridad.php"); ?>
+<?php include("../php/privilegio.php"); ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Compras</title>
@@ -24,7 +25,7 @@
     <table border="0" align="center">
         <tr>
             <td width="100"><button id="nuevo-comp" class="btn btn-primary">Nuevo</button></td>
-            <td witdh="200"><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></td>
+            <td witdh="200"><a id="volver" class="btn btn-primary" href="menu.php">Volver</td>
         </tr>
     </table>
     </section>
@@ -45,7 +46,7 @@
                         <td>'.$registro2['nomb_prove'].'</td>
                         <td>$ '.$registro2['importe_compra'].'</td>
                         <td>'.fechaNormal($registro2['fecha_compra']).'</td>
-                        <td><a href="javascript:editarCompra('.$registro2['id_compra'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarCompra('.$registro2['id_compra'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+                        <td><a style="font-size: 20px;" href="javascript:editarCompra('.$registro2['id_compra'].');" class="glyphicon glyphicon-edit"></a> <a style="font-size: 20px;" href="javascript:eliminarCompra('.$registro2['id_compra'].');" class="glyphicon glyphicon-remove-circle"></a></td>
                     </tr>';      
             }
         ?>

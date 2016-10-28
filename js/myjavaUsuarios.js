@@ -4,6 +4,7 @@ $(function(){ /*<!--Copyright 2016 nk9mhp <nk9mhp@DESKTOP-LOGHESU> alessandrover
 		$('#pro').val('Registro');
 		$('#edi').hide();
 		$('#reg').show();
+		document.getElementById("usuario").disabled = false;
 		$('#registra-usu').modal({
 			show:true,
 			backdrop:'static'
@@ -64,6 +65,7 @@ function editarUsu(id){
 				$('#reg').hide();
 				$('#edi').show();
 				$('#pro').val('Edicion');
+				document.getElementById("usuario").disabled = true;
 				$('#id-usu').val(id);
 				$('#usuario').val(datos[0]);
 				$('#clave').val(datos[1]);
@@ -77,4 +79,22 @@ function editarUsu(id){
 		}
 	});
 	return false;
+}
+
+function validar(){
+	if ($('#pro').val() == 'Registro'){
+		var usuario = document.getElementById("usuario").value;
+		var url = '../php/validar_usu.php';
+			$.ajax({
+			type:'POST',
+			url:url,
+			data:'usuario='+usuario,
+			success: function(valores){
+				if(valores == 1){
+					$('#mensaje').addClass('bien').html('Este usuario ya existe').show(200).delay(2500).hide(200);
+					document.getElementById("usuario").value = "";
+				}
+			}
+		});
+	}
 }

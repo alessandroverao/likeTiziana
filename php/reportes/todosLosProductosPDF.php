@@ -1,5 +1,6 @@
 <?php
-
+include("../../php/seguridad.php"); 
+include("../../php/privilegio.php");
 require('../../fpdf/fpdf.php');
 require('../../php/conexion.php');
 $pdf = new FPDF();

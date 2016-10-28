@@ -56,7 +56,7 @@ echo '<table class="table table-striped table-condensed table-hover">
                 <td>'.$registro2['porcentaje_prod'].' %</td>
                 <td>$ '.$registro2['precio_unit'].'</td>
                 <td>'.$registro2['existencia_prod'].'</td>
-				<td><a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+				<td><a style="font-size: 20px;" href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a> <a style="font-size: 20px;" href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a></td>
 				</tr>';
 	}
 echo '</table>';

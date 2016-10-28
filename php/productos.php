@@ -42,7 +42,7 @@ function porcentajeAplicado(){
         <tr>
             <td width="335"><input type="text" placeholder="Buscar por: Nombre, Cod. Barra o Tipo" id="bs-prod" autofocus/></td>
             <td width="100"><button id="nuevo-producto" class="btn btn-primary">Nuevo</button></td>
-            <td witdh="200"><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></td>
+            <td witdh="200"><a id="volver" class="btn btn-primary" href="herramientas.php">Volver</td>
         </tr>
     </table>
     </section>
@@ -71,7 +71,7 @@ function porcentajeAplicado(){
                         <td>'.$registro2['porcentaje_prod'].' %</td>
                         <td>$ '.$registro2['precio_unit'].'</td>
                         <td>'.$registro2['existencia_prod'].'</td>
-                        <td><a href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a> <a href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a></td>
+                        <td><a style="font-size: 20px;" href="javascript:editarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-edit"></a> <a style="font-size: 20px;" href="javascript:eliminarProducto('.$registro2['id_prod'].');" class="glyphicon glyphicon-remove-circle"></a></td>
                     </tr>';      
             }
         ?>
@@ -85,7 +85,7 @@ function porcentajeAplicado(){
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <button type="button" class="close" id="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <h4 class="modal-title" id="myModalLabel"><b>Registrar o editar un producto</b></h4>
             </div>
             <form id="formulario" name="form1" class="formulario" onsubmit="return agregaRegistro();">
@@ -136,10 +136,10 @@ function porcentajeAplicado(){
                     <tr>
                         <td>Existencia: </td>
                         <td><input type="number"  required="required" min="0" max="9999999999" name="existencia" id="existencia"/></td>
-                        <td><input type="number"  required="required" min="1" max="999999999" name="existenciaedt" id="existenciaedt"/></td>
+                        <td width="100" ><input type="number" name="existenciaedt" id="existenciaedt"/></td>
                     </tr>
                         <td>IVA:</td>
-                        <td><input type="number" name="iva" id="iva" pattern="[0-9]{1,3}+\,[0-9]{1,2}$" placeholder="21.00" step="any"/></td>
+                        <td><input type="number" name="iva" id="iva" pattern="[0-9]{1,3}+\,[0-9]{1,2}$" placeholder="21.00" max="9999999999" step="any"/></td>
                     <tr>
                         <td colspan="2">
                             <div id="mensaje"></div>

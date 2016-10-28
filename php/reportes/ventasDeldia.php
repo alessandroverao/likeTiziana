@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include("../../php/seguridad.php"); ?>
+	<?php include("../../php/privilegio.php"); ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Ventas del día</title>
@@ -88,7 +90,7 @@
 	<hr>
 	<ul>
 		<li><form><button onclick="javascript:reportePDF();" class="btn btn-danger">Exportar a PDF</button></form></li>
-		<li><form><button id="volver" class="btn btn-primary"  onclick="history.back()">Volver</button></form></li>
+		<li><a id="volver" class="btn btn-primary" href="../reportes.php">Volver</a></li>
 	</ul>
 	<div class="registros" id="venta">
         <table class="table table-striped table-condensed table-hover">

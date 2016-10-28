@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php include("../../php/seguridad.php"); ?>
+	<?php include("../../php/privilegio.php"); ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Ventas entre fechas</title>
@@ -107,7 +109,7 @@
 	<hr>
 	<ul>
 		<li><form><button onclick="javascript:reportePDF();" class="btn btn-danger">Exportar a PDF</button></form></li>
-		<li><form><button id="volver" class="btn btn-primary" onclick="history.back()">Volver</button></form></li>
+		<li><a id="volver" class="btn btn-primary" href="../reportes.php">Volver</a></li>
 		<li><form><input type="date" id="fecha1" value="<?php echo $fecha1; ?>" disabled></form></li>
 		<li><form><input type="date" id="fecha2" value="<?php echo $fecha2; ?>" disabled></form></li>
 	</ul>

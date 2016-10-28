@@ -1,4 +1,6 @@
 <?php
+include("../../php/seguridad.php"); 
+include("../../php/privilegio.php");
 $tipo = $_GET['tipo'];
 require('../../fpdf/fpdf.php');
 require('../../php/conexion.php');
